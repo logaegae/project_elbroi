@@ -49,6 +49,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'pages/view';
+
+//랜딩페이지
+$route['default_controller'] = 'pages/index';
+
+//탬플릿
+$route['tpl'] = 'tpl/index';
+$route['([A-Za-z0-9]+(\.html))'] = 'tpl/index/$1';
+
+//어드민
+$route['admin'] = 'admin/index';
+$route['admin/html/(:any)/(:any)'] = 'admin/$1/$2';
+$route['admin/html/(:any)'] = 'admin/html/$1';
+
+//어드민 탬플릿
+$route['adminTpl'] = 'admin/adminTpl';
+$route['adminTpl/tpl/blocks/(:any)'] = 'admin/tplBlocks/$1';
+$route['adminTpl/tpl/material/(:any)'] = 'admin/tplMaterial/$1';
+$route['adminTpl/tpl/(:any)'] = 'admin/tpl/$1';
+
+//일반
 $route['(:any)'] = 'pages/view/$1';
+
+//에러
+$route['404_override'] = '';
+
 
