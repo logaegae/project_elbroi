@@ -6,11 +6,13 @@ class Admin  extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
+		$this -> load -> helper('auth');
+		checkAuth('ADMIN');
 	}
 
 	public function index(){
-
-		$this->load->view('admin/index.html');
+				
+		$this -> load -> view('admin/index.html');
 
 	}
 
@@ -21,7 +23,7 @@ class Admin  extends CI_Controller {
 			show_404();
 		}
 
-		$this->load->view('admin/html/'.$page);
+		$this -> load -> view('admin/html/'.$page);
 	}
 
 	public function blocks($page){
@@ -31,7 +33,7 @@ class Admin  extends CI_Controller {
 			show_404();
 		}
 
-		$this->load->view('admin/html/blocks/'.$page);
+		$this -> load -> view('admin/html/blocks/'.$page);
 	}
 
 	public function material($page){
@@ -41,7 +43,7 @@ class Admin  extends CI_Controller {
 			show_404();
 		}
 
-		$this->load->view('admin/tpl/material/'.$page);
+		$this -> load -> view('admin/tpl/material/'.$page);
 	}
 
 }
