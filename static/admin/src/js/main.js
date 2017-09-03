@@ -3,7 +3,7 @@
 /* Controllers */
 
 angular.module('app')
-  .controller('AppCtrl', ['$scope', '$translate', '$localStorage', '$window', 
+  .controller('AppCtrl', ['$scope', '$translate', '$localStorage', '$window',
     function(              $scope,   $translate,   $localStorage,   $window ) {
       // add 'ie' classes to html
       var isIE = !!navigator.userAgent.match(/MSIE/i);
@@ -12,8 +12,8 @@ angular.module('app')
 
       // config
       $scope.app = {
-        name: 'Oh Berry Good',
-        version: '2.0.3',
+        name: 'ELBROI',
+        version: '0.0.1',
         // for chart colors
         color: {
           primary: '#7266ba',
@@ -57,8 +57,8 @@ angular.module('app')
 
       // angular translate
       $scope.lang = { isopen: false };
-      $scope.langs = {en:'English', de_DE:'German', it_IT:'Italian'};
-      $scope.selectLang = $scope.langs[$translate.proposedLanguage()] || "English";
+      $scope.langs = {en:'English', de_DE:'German', it_IT:'Italian', ko="한국어"};
+      $scope.selectLang = $scope.langs[$translate.proposedLanguage()] || "한국어";
       $scope.setLang = function(langKey, $event) {
         // set the current lang
         $scope.selectLang = $scope.langs[langKey];
