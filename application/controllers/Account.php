@@ -17,14 +17,6 @@ class Account extends CI_Controller {
 
 	}
 
-	public function _remap($method) {
-
-		if (method_exists($this, $method)) {
-			$this -> {"{$method}"}();
-		}
-
-	}
-
 	public function login() {
 
 		$this->form_validation->set_rules('email', '이메일 주소', 'required|valid_email');

@@ -1,16 +1,16 @@
         <div id="main" class="site-main">
-            
+
             <div class="block-slides slide-border slide-fixtop">
-                <div class="owl-carousel dotsData" data-nav="false" data-dots="true" data-margin="0" 
+                <div class="owl-carousel dotsData" data-nav="false" data-dots="true" data-margin="0"
                     data-items='1' data-autoplayTimeout="700" data-autoplay="true" data-loop="true">
-                    <div class="item-slide item-slide1" data-dot="1">
-                        <img alt="" src="/static/images/slide/slide1.jpg">
+                    <div class="item-slide item-slide1" data-dot="1" style="overflow:hidden; height:777px;">
+                        <img alt="" src="/static/images/slide/clothes1.jpg">
                         <div class="figcaption">
                             <div class="box-table">
                                 <div class="box-td">
                                     <div class="box-des">
-                                        <span class="text-medium">The Best Ecommerce Wordpress Theme</span>
-                                        <h1 class="text-large">we are adella</h1>
+                                        <span class="text-medium">FASHION BRAND</span>
+                                        <h1 class="text-large">we are ELBROI</h1>
                                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard </p>
                                     </div>
                                 </div>
@@ -61,7 +61,7 @@
                                 <span class="title-tranfrom">the trendy 2016</span>
                             </div>
                         </div>
-                        
+
                         <div class="col-md-3 col-sm-3 col-xs-6 col-sm-push-6 animated fadeInRight">
                             <div class="box-banner box-right">
                                 <span>specail to day</span>
@@ -118,23 +118,23 @@
                         </div>
                     </div>
                 </div>
-            </div><!-- widget -  banner --> 
-			
+            </div><!-- widget -  banner -->
+
             <div class="block-products products-grid container style1">
                 <div class="block-title animatedParent animateOnce">
                     <strong class="title animated fadeInLeft">featured products</strong>
                     <p class="animated fadeInRight">Shop from over 99 of the best brands, including adella</p>
-                </div>	
+                </div>
 				<div class="container">
 	                <div class="block-products-tab tab-filter tab-style1">
-	
+
 	                    <div class="block-content">
 	                        <div class="tab-content">
 	                            <div class="tab-pane active" >
 	                                <div class="products-grid">
-	
+
 	                                    <ol class="product-items">
-	
+
 	                                        <li class="product-item">
 	                                            <div class="product-item-info">
 	                                                <div class="product-item-head">
@@ -150,7 +150,7 @@
 	                                                    <strong class="product-item-name">
 	                                                        <a href="" class="product-item-link">The Name Product Demo </a>
 	                                                    </strong>
-	                                                    
+
 	                                                    <div class="product-item-info-price">
 	                                                        <div class="product-reviews-summary">
 	                                                            <div class="rating-summary">
@@ -162,8 +162,8 @@
 	                                                            </div>
 	                                                        </div>
 	                                                        <div  class="price-box">
-	                                                            <span class="price-from"> 
-	                                                                <span class="price">$61.00</span> 
+	                                                            <span class="price-from">
+	                                                                <span class="price">$61.00</span>
 	                                                            </span>
 	                                                            <span class="price-to">
 	                                                                <span class="price">$77.00</span>
@@ -216,8 +216,8 @@
 	                                                            </div>
 	                                                        </div>
 	                                                        <div  class="price-box">
-	                                                            <span class="price-from"> 
-	                                                                <span class="price">$61.00</span> 
+	                                                            <span class="price-from">
+	                                                                <span class="price">$61.00</span>
 	                                                            </span>
 	                                                            <span class="price-to">
 	                                                                <span class="price">$77.00</span>
@@ -270,7 +270,7 @@
 	                                                            </div>
 	                                                        </div>
 	                                                        <div  class="price-box">
-	                                                            <span class="price">$61.00</span> 
+	                                                            <span class="price">$61.00</span>
 	                                                        </div>
 	                                                    </div>
 	                                                    <div class="product-item-actions">
@@ -325,7 +325,7 @@
 	                                                            <span class="special-price">
 	                                                                <span class="price">$15.00</span>
 	                                                            </span>
-	                                                            
+
 	                                                        </div>
 	                                                    </div>
 	                                                    <div class="product-item-actions">
@@ -348,22 +348,22 @@
 	                                                    </div>
 	                                                </div>
 	                                            </div>
-	                                        </li>	                                        
+	                                        </li>
 	                                    </ol><!-- list product -->
-	
+
 	                                </div>
 	                            </div>
 	                        </div>
-	                    </div>	                    
+	                    </div>
 	                </div>
 	            </div>
             </div>
-                        
+
             <div class="block-new-trend animatedParent animateOnce">
                 <div class="container animated fadeInUpShort">
                     <div class="carousel-style3 owl-carousel" data-dots="true" data-items='1' data-autoplayTimeout="700" data-autoplay="true" data-loop="true">
                         <div class="item item1" style="background-image: url(/static/images/banner/banner4-4.jpg);">
-                            
+
                             <div class="content-text">
                                 <span class="text-medium">New Trend 2016</span>
                                 <span class="text-large">look book</span>
@@ -371,7 +371,7 @@
                             </div>
                         </div>
                         <div class="item item2" style="background-image: url(/static/images/banner/banner4-5.jpg);">
-                            
+
                             <div class="content-text">
                                 <span class="text-medium">New Trend 2016</span>
                                 <span class="text-large">look book</span>
@@ -388,22 +388,22 @@
                     </div>
                 </div>
             </div><!-- widget -  new -  trend -->
-			
+
             <div class="block-products products-grid container style1">
                 <div class="block-title animatedParent animateOnce">
 				<strong class="title animated fadeInRight">new products</strong>
 				<p class="animated  fadeInLeft">Shop from over 99 of the best brands, including adella</p>
-			</div>	
+			</div>
 				<div class="container">
 	                <div class="block-products-tab tab-filter tab-style1">
-	
+
 	                    <div class="block-content">
 	                        <div class="tab-content">
 	                            <div class="tab-pane active" >
 	                                <div class="products-grid">
-	
+
 	                                    <ol class="product-items">
-	
+
 	                                        <li class="product-item">
 	                                            <div class="product-item-info">
 	                                                <div class="product-item-head">
@@ -419,7 +419,7 @@
 	                                                    <strong class="product-item-name">
 	                                                        <a href="" class="product-item-link">The Name Product Demo </a>
 	                                                    </strong>
-	                                                    
+
 	                                                    <div class="product-item-info-price">
 	                                                        <div class="product-reviews-summary">
 	                                                            <div class="rating-summary">
@@ -431,8 +431,8 @@
 	                                                            </div>
 	                                                        </div>
 	                                                        <div  class="price-box">
-	                                                            <span class="price-from"> 
-	                                                                <span class="price">$61.00</span> 
+	                                                            <span class="price-from">
+	                                                                <span class="price">$61.00</span>
 	                                                            </span>
 	                                                            <span class="price-to">
 	                                                                <span class="price">$77.00</span>
@@ -485,8 +485,8 @@
 	                                                            </div>
 	                                                        </div>
 	                                                        <div  class="price-box">
-	                                                            <span class="price-from"> 
-	                                                                <span class="price">$61.00</span> 
+	                                                            <span class="price-from">
+	                                                                <span class="price">$61.00</span>
 	                                                            </span>
 	                                                            <span class="price-to">
 	                                                                <span class="price">$77.00</span>
@@ -539,7 +539,7 @@
 	                                                            </div>
 	                                                        </div>
 	                                                        <div  class="price-box">
-	                                                            <span class="price">$61.00</span> 
+	                                                            <span class="price">$61.00</span>
 	                                                        </div>
 	                                                    </div>
 	                                                    <div class="product-item-actions">
@@ -594,7 +594,7 @@
 	                                                            <span class="special-price">
 	                                                                <span class="price">$15.00</span>
 	                                                            </span>
-	                                                            
+
 	                                                        </div>
 	                                                    </div>
 	                                                    <div class="product-item-actions">
@@ -617,17 +617,17 @@
 	                                                    </div>
 	                                                </div>
 	                                            </div>
-	                                        </li>	                                        
+	                                        </li>
 	                                    </ol><!-- list product -->
-	
+
 	                                </div>
 	                            </div>
 	                        </div>
-	                    </div>	                    
+	                    </div>
 	                </div>
 	            </div>
             </div>
-      
+
             <div class="block-posts style1 style-black">
                 <div class="container">
                     <div class="block-title animatedParent animateOnce">
@@ -641,7 +641,7 @@
                                     <a href="" class="post-item-photo">
                                         <img alt="Lorem Ipsum Dolor Sit Amet  Consectetur" src="/static/images/media/post1.jpg" class="post-image-photo">
                                     </a>
-                                    
+
                                     <div class="post-item-details">
                                         <span class="post-item-date"><span class="date">20</span>/March</span>
                                         <strong class="post-item-name">
@@ -658,7 +658,7 @@
                                     <a href="" class="post-item-photo">
                                         <img alt="Lorem Ipsum Dolor Sit Amet  Consectetur" src="/static/images/media/post2.jpg" class="post-image-photo">
                                     </a>
-                                    
+
                                     <div class="post-item-details">
                                         <span class="post-item-date"><span class="date">20</span>/March</span>
                                         <strong class="post-item-name">
@@ -675,7 +675,7 @@
                                     <a href="" class="post-item-photo">
                                         <img alt="Lorem Ipsum Dolor Sit Amet  Consectetur" src="/static/images/media/post2.jpg" class="post-image-photo">
                                     </a>
-                                    
+
                                     <div class="post-item-details">
                                         <span class="post-item-date"><span class="date">20</span>/March</span>
                                         <strong class="post-item-name">
@@ -691,14 +691,14 @@
                     </div>
                 </div>
             </div><!-- widget  -  blog -->
-            
+
             <div>
-            	
+
 				<div class="container">
 	                <div class="block-products-tab tab-filter tab-style1">
-	
+
 	                    <div class="block-title">
-	
+
 	                        <ul class="nav nav-pills" >
 	                            <li class="active">
 	                                <a href="" >ALL products</a>
@@ -713,14 +713,14 @@
 	                                <a href="" >collection</a>
 	                            </li>
 	                        </ul><!-- Nav Category -->
-	                        
+
 	                        <div class="box-search">
 	                            <div class="has-feedback">
 	                                <input type="text" class="form-control" placeholder="Search here...">
 	                                <span class="pe-7s-search form-control-feedback" aria-hidden="true"></span>
 	                            </div>
 	                        </div><!-- Search Product -->
-	
+
 	                        <div class="dropdown filter">
 	                            <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
 	                               <span>filter</span>
@@ -765,42 +765,42 @@
 	                                                    <li>
 	                                                        <a href="">
 	                                                            <span class="icon" style="background-color: #262626;"></span>
-	                                                            <span class="text">Black</span> 
+	                                                            <span class="text">Black</span>
 	                                                            <span class="count">(10)</span>
 	                                                        </a>
 	                                                    </li>
 	                                                    <li>
 	                                                        <a href="">
 	                                                            <span class="icon" style="background-color: #ffffff;"></span>
-	                                                            <span class="text"> White    </span> 
+	                                                            <span class="text"> White    </span>
 	                                                            <span class="count">(10)</span>
 	                                                        </a>
 	                                                    </li>
 	                                                    <li>
 	                                                        <a href="">
 	                                                            <span class="icon" style="background-color: #f69600;"></span>
-	                                                            <span class="text">Orange</span> 
+	                                                            <span class="text">Orange</span>
 	                                                            <span class="count">(10)</span>
 	                                                        </a>
 	                                                    </li>
 	                                                    <li>
 	                                                        <a href="">
 	                                                            <span class="icon" style="background-color: #00c7c5;"></span>
-	                                                            <span class="text">Blue</span> 
+	                                                            <span class="text">Blue</span>
 	                                                            <span class="count">(10)</span>
 	                                                        </a>
 	                                                    </li>
 	                                                    <li>
 	                                                        <a href="">
 	                                                            <span class="icon" style="background-color: #fced00;"></span>
-	                                                            <span class="text">Yelow</span> 
+	                                                            <span class="text">Yelow</span>
 	                                                            <span class="count">(10)</span>
 	                                                        </a>
 	                                                    </li>
 	                                                    <li>
 	                                                        <a href="">
 	                                                            <span class="icon" style="background-color: #755500;"></span>
-	                                                            <span class="text">Brown</span> 
+	                                                            <span class="text">Brown</span>
 	                                                            <span class="count">(10)</span>
 	                                                        </a>
 	                                                    </li>
@@ -829,17 +829,17 @@
 	                                </div>
 	                            </div>
 	                        </div><!-- Filter Product -->
-	
-	                        
+
+
 	                    </div>
-	
+
 	                    <div class="block-content">
 	                        <div class="tab-content">
 	                            <div class="tab-pane active" >
 	                                <div class="products-grid">
-	
+
 	                                    <ol class="product-items">
-	
+
 	                                        <li class="product-item">
 	                                            <div class="product-item-info">
 	                                                <div class="product-item-head">
@@ -855,7 +855,7 @@
 	                                                    <strong class="product-item-name">
 	                                                        <a href="" class="product-item-link">The Name Product Demo </a>
 	                                                    </strong>
-	                                                    
+
 	                                                    <div class="product-item-info-price">
 	                                                        <div class="product-reviews-summary">
 	                                                            <div class="rating-summary">
@@ -867,8 +867,8 @@
 	                                                            </div>
 	                                                        </div>
 	                                                        <div  class="price-box">
-	                                                            <span class="price-from"> 
-	                                                                <span class="price">$61.00</span> 
+	                                                            <span class="price-from">
+	                                                                <span class="price">$61.00</span>
 	                                                            </span>
 	                                                            <span class="price-to">
 	                                                                <span class="price">$77.00</span>
@@ -921,8 +921,8 @@
 	                                                            </div>
 	                                                        </div>
 	                                                        <div  class="price-box">
-	                                                            <span class="price-from"> 
-	                                                                <span class="price">$61.00</span> 
+	                                                            <span class="price-from">
+	                                                                <span class="price">$61.00</span>
 	                                                            </span>
 	                                                            <span class="price-to">
 	                                                                <span class="price">$77.00</span>
@@ -975,7 +975,7 @@
 	                                                            </div>
 	                                                        </div>
 	                                                        <div  class="price-box">
-	                                                            <span class="price">$61.00</span> 
+	                                                            <span class="price">$61.00</span>
 	                                                        </div>
 	                                                    </div>
 	                                                    <div class="product-item-actions">
@@ -1030,7 +1030,7 @@
 	                                                            <span class="special-price">
 	                                                                <span class="price">$15.00</span>
 	                                                            </span>
-	                                                            
+
 	                                                        </div>
 	                                                    </div>
 	                                                    <div class="product-item-actions">
@@ -1085,7 +1085,7 @@
 	                                                            <span class="special-price">
 	                                                                <span class="price">$15.00</span>
 	                                                            </span>
-	                                                            
+
 	                                                        </div>
 	                                                    </div>
 	                                                    <div class="product-item-actions">
@@ -1134,7 +1134,7 @@
 	                                                            </div>
 	                                                        </div>
 	                                                        <div  class="price-box">
-	                                                            <span class="price">$61.00</span> 
+	                                                            <span class="price">$61.00</span>
 	                                                        </div>
 	                                                    </div>
 	                                                    <div class="product-item-actions">
@@ -1189,7 +1189,7 @@
 	                                                            <span class="special-price">
 	                                                                <span class="price">$15.00</span>
 	                                                            </span>
-	                                                            
+
 	                                                        </div>
 	                                                    </div>
 	                                                    <div class="product-item-actions">
@@ -1244,7 +1244,7 @@
 	                                                            <span class="special-price">
 	                                                                <span class="price">$15.00</span>
 	                                                            </span>
-	                                                            
+
 	                                                        </div>
 	                                                    </div>
 	                                                    <div class="product-item-actions">
@@ -1269,7 +1269,7 @@
 	                                            </div>
 	                                        </li>
 	                                    </ol><!-- list product -->
-	
+
 	                                </div>
 	                            </div>
 	                        </div>
@@ -1280,9 +1280,9 @@
 	                </div>
 	            </div>
             </div>
-            
+
         </div><!-- site-main -->
- 
+
     </div>
 <script>
 	$('body').addClass('cms-index-index,page-layout-1columns,home-page1');

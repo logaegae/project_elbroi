@@ -22,16 +22,16 @@
                             <div class="block-newsletter">
                                 <div class="container">
                                     <div class="block-title">
-                                        <strong>GET newsletter</strong>
+                                        <strong>구독하기</strong>
                                     </div>
                                     <div class="block-content">
                                         <form  class="form subscribe">
                                             <div class="control">
-                                                <input type="email" placeholder="Type your email here"  name="email" class="input-subscribe">
+                                                <input type="email" placeholder="EMAIL"  name="email" class="input-subscribe">
                                             </div>
                                             <div class="actions">
                                                 <button type="submit" title="Subscribe" class="btn subscribe">
-                                                    <span>Subscribe</span>
+                                                    <span>신청</span>
                                                 </button>
                                             </div>
                                         </form>
@@ -52,18 +52,18 @@
                             <ul class="contact">
                                 <li>
                                     <span class="icon"> <span class="pe-7s-map-marker"></span></span>
-                                    <span>ADELLA London Oxford Street 02 <br>United Kingdom.   </span>
+                                    <span>상호 엘브로이 | 대표 김범영<br>사업자등록번호 587-26-00512   </span>
                                 </li>
 
                                 <li>
                                     <span class="icon"> <span class="pe-7s-mail-open"></span></span>
-                                    <span>emailadella@gmail.com <br> emailsupport@gmail.com</span>
+                                    <span>이메일 admin@elbroi.com <br>카카오 logaegae@nate.com</span>
                                 </li>
                                 <li>
                                     <span class="icon"> <span class="pe-7s-home"></span></span>
-                                    <span>(+92) 3456 7890 <br> (+92) 1234 5678</span>
+                                    <span>(+82) 010 9004 5938 <br> (+82) 2226 5021</span>
                                 </li>
-                               
+
                             </ul>
                         </div>
 
@@ -79,7 +79,7 @@
                                 <li><a href="">Site map</a></li>
                             </ul>
                         </div>
-                        
+
                         <div class="col-sm-3 col-xs-6 col">
                             <ul class="links">
                                 <li>
@@ -114,10 +114,33 @@
                 <div class="container">
 
                     <div class="copyright">
-                        Copyright @ 2015 <a href="">ADELLA</a>. All rights reserved.
+                        Copyright @ 2017 <a href="">ELBROI</a>. All rights reserved.
                     </div><!-- Copyright -->
 
                     <div class="paypal-img">
+                        <!-- KB에스크로 이체 인증마크 적용 시작 -->
+                        <script>
+                            function onPopKBAuthMark()
+                            {
+                                window.open('','KB_AUTHMARK','height=604, width=648, status=yes, toolbar=no, menubar=no, location=no');
+                                document.KB_AUTHMARK_FORM.action='https://okbfex.kbstar.com/quics';
+                                document.KB_AUTHMARK_FORM.target='KB_AUTHMARK';
+                                document.KB_AUTHMARK_FORM.submit();
+                            }
+                        </script>
+                        <form name="KB_AUTHMARK_FORM" method="get">
+                            <input type="hidden" name="page" value="C021590"/>
+                            <input type="hidden" name="cc" value="b034066:b035526"/>
+                            <input type="hidden" name="mHValue" value='1512018ae038d9de60c39b55fb0e0a19201709041633449'/>
+                        </form>
+                        <a href="#" onclick="javascript:onPopKBAuthMark();return false;">
+                            <img src="http://img1.kbstar.com/img/escrow/escrowcmark.gif" border="0"/>
+                        </a>
+                        <!--
+                            이체 바로가기
+                            https://okbfex.kbstar.com/quics?page=C016760&mHValue=1512018ae038d9de60c39b55fb0e0a19201709041633449
+                        -->
+                        <!-- KB에스크로이체 인증마크 적용 종료 -->
                         <img alt="" src="/static/images/media/paypal1.png">
                         <img alt="" src="/static/images/media/paypal2.png">
                         <img alt="" src="/static/images/media/paypal3.png">
@@ -134,28 +157,28 @@
         </div><!-- site-footer -->
     </div>
 
-    <!-- animate -->    
+    <!-- animate -->
     <script type="text/javascript" src="/static/js/css3-animate-it.js"></script>
 
-    <!-- countUp -->    
+    <!-- countUp -->
     <script type="text/javascript" src="/static/js/countUp/countUp.js"></script>
-    
-    <!-- Boostrap --> 
+
+    <!-- Boostrap -->
     <script type="text/javascript" src="/static/js/bootstrap.js"></script>
 
     <!-- sticky -->
     <script type="text/javascript" src="/static/js/jquery.sticky.js"></script>
 
-    <!-- OWL CAROUSEL Slider -->    
+    <!-- OWL CAROUSEL Slider -->
     <script type="text/javascript" src="/static/js/owl.carousel.js"></script>
-	
+
 	<!-- jQuery UI -->
     <script type="text/javascript" src="/static/js/jquery-ui.min.js"></script>
-    
+
 	<!-- checkbox UI -->
 	<script type="text/javascript" src="/static/js/icheck.min.js"></script>
-    
-    <!-- Main -->  
+
+    <!-- Main -->
     <script type="text/javascript" src="/static/js/main.js"></script>
 </body>
 </html>

@@ -58,9 +58,9 @@ $route['template'] = 'template/index';
 $route['([A-Za-z0-9]+(\.html))'] = 'template/index/$1';
 
 //어드민
-$route['admin'] = 'admin/index';
-$route['admin/html/(:any)/(:any)'] = 'admin/$1/$2';
-$route['admin/html/(:any)'] = 'admin/html/$1';
+$route['admin'] = 'adminPages/index';
+$route['admin/html/(:any)/(:any)'] = 'adminPages/$1/$2';
+$route['admin/html/(:any)'] = 'adminPages/html/$1';
 
 //어드민 탬플릿
 $route['adminTemplate'] = 'adminTemplate/index';
@@ -73,5 +73,3 @@ $route['(:any)'] = 'pages/view/$1';
 
 //에러
 $route['404_override'] = '';
-
-
