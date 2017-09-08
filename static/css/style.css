@@ -1,60 +1,130 @@
-/*--------------------------
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,700,300);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic);
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,700italic);
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
+@import url(bootstrap.css);
+@import url(owl.carousel.css);
+@import url(font-awesome.css);
+@import url(pe-icon-7-stroke.css);
+@import url(helper.css);
+@import url(animations.css);
+@import url(jquery.bxslider.css);
+/**
+
 	Theme Name: Adelia
-	Theme URI:
-	Author:
-	Author URI:
+
+	Theme URI: 
+
+	Author: 
+
+	Author URI: 
+
 	Description: Adelia HTML Template
+
 	Version: 1.0
+
 	License:
-	Tags:
-	Text Domain:
- -------------------------*/
-/*------------------------
+
+	Tags: 
+
+	Text Domain: 
+
+ */
+/*	
+
 	1. IMPORT FILES
+
 	2. GENERAL
+
 	3. ELEMENTS
+
 	4. HEADER
+
 		4.1. General
+
 		4.2 Main menu
+
 		4.3 Search box
+
 		4.4 Cart header
+
 		4.5 Setting header
+
 	5. SIDEBAR
+
 	6. FOOTER
+
 	7. Blog
+
 		7.1 General
+
 		7.2 Blog
+
 		7.3 Single Blog
+
 	8. SHOP
+
 		8.1 Shop General
+
 		8.2 Shop Page
+
 		8.3 Shop Single
+
 		8.4 Shop Cart
+
 		8.5 Shop Checkout
+
 		8.6 Shop Wishlist
+
 	9. PAGES
+
 		9.1 About Us
+
 		9.2 Contact Us
+
 		9.3 404 Page
+
 		9.4 Login / Register
+
 	10. HOME PAGE
+
 		10.1 Home version 1
+
 		10.2 Home version 2
+
 		10.3 Home version 3
+
 		10.4 Home version 4
+
 		10.5 Home version 5
+
 		10.6 Home version 6
+
 		10.6 Home version 7
+
 		10.6 Home version 8
+
 		10.6 Home version 9
+
 		10.6 Home version 10
+
 		10.6 Home version 11
+
 		10.6 Home version 12
+
 		10.6 Home version 13
 
 
 
-----------------------------------*/
+################################################################# */
+/*==========================================================
+
+  1. IMPORT FILES
+
+==========================================================*/
+/*	Fonts*/
+/* 	Css */
 /*==========================================================
 
 	2. GENERAL
@@ -1604,7 +1674,7 @@ fieldset[disabled] .btn-inline-sub.active {
 			font-size: 36px;
 		}
 	}
-	.item-slide3 , 
+	.item-slide3 ,
 	.item-slide5 ,
 	.slide-sm .item-slide3,
 	.slide-sm .item-slide5{

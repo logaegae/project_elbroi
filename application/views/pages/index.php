@@ -3,8 +3,8 @@
             <div class="block-slides slide-border slide-fixtop">
                 <div class="owl-carousel dotsData" data-nav="false" data-dots="true" data-margin="0"
                     data-items='1' data-autoplayTimeout="700" data-autoplay="true" data-loop="true">
-                    <div class="item-slide item-slide1" data-dot="1" style="overflow:hidden; height:777px;">
-                        <img alt="" src="/static/images/slide/clothes1.jpg">
+                    <div class="item-slide item-slide1" data-dot="1">
+                        <img alt="" src="/static/images/slide/clothes1.jpg">                        
                         <div class="figcaption">
                             <div class="box-table">
                                 <div class="box-td">

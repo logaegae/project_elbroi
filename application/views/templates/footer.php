@@ -179,6 +179,6 @@
 	<script type="text/javascript" src="/static/js/icheck.min.js"></script>
 
     <!-- Main -->
-    <script type="text/javascript" src="/static/js/main.js"></script>
+    <script type="text/javascript" src="/static/js/main.js?v=00001"></script>
 </body>
 </html>

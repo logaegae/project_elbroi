@@ -5,14 +5,14 @@
             var config = $(this).data();
             config.navText = ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'];
             config.smartSpeed="800";
-           
+
             if($(this).hasClass('owl-style2')){
                 config.animateOut="fadeOut";
-                config.animateIn="fadeIn";    
+                config.animateIn="fadeIn";
             }
-            
+
             if($(this).hasClass('dotsData')){
-                 config.dotsData="true";  
+                 config.dotsData="true";
             }
             $(this).owlCarousel(config);
         });
@@ -93,7 +93,6 @@
                 $('input[name='+fieldName+']').val(0);
             }
         });
-
     });
 
     $(window).scroll(function () {
@@ -103,4 +102,5 @@
             $('.back-to-top').fadeOut();
         }
     });
+
 })(jQuery);

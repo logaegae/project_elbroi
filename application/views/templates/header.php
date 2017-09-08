@@ -8,7 +8,7 @@
     <title><?php echo $title ?></title>
 
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Oswald:400,700,300|Lato:400,300,300italic,400italic,700,700italic|Playfair+Display:400,400italic,700,700italic|Droid+Serif:400,700,400italic,700italic|Roboto:400,700">
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css"> 	
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css">
     <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/static/css/owl.carousel.css">
     <link rel="stylesheet" type="text/css" href="/static/css/font-awesome.css">
@@ -16,16 +16,15 @@
     <link rel="stylesheet" type="text/css" href="/static/css/helper.css">
     <link rel="stylesheet" type="text/css" href="/static/css/animations.css">
     <link rel="stylesheet" type="text/css" href="/static/css/jquery.bxslider.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/flat/_all.css">
 
     <!-- Style CSS -->
-    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css?v=00001">
     <!-- Responsive CSS -->
-    <link rel="stylesheet" type="text/css" href="/static/css/responsive.css">
-	
-	<!-- jQuery -->    
+    <link rel="stylesheet" type="text/css" href="/static/css/responsive.css?v=00001">
+
+	<!-- jQuery -->
     <script type="text/javascript" src="/static/js/jquery.min.js"></script>
-    
+
     <style>
     	body{
     		font-family: "Nanum Gothic";
@@ -35,7 +34,7 @@
 <body class="cms-index-index page-layout-1columns home-page9">
 
     <div class="wrapper">
-            
+
         <div id="header" class="site-header style4">
             <div class="header-top">
                 <div class="container clearfix">
@@ -67,7 +66,7 @@
                         </ul>
                     </div><!-- My Account  -->
 
-                    
+
                     <div class="dropdown switcher  switcher-language">
                         <a class="dropdown-toggle switcher-trigger" href="#" role="button" data-toggle="dropdown"><span>Korean</span> <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                         <ul class="dropdown-menu switcher-options " >
@@ -87,7 +86,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </div><!-- Switcher-Language  -->                  
+                    </div><!-- Switcher-Language  -->
 
                 </div>
             </div>
@@ -108,7 +107,7 @@
                             </form>
                         </div>
                     </div><!-- Search box -->
-                    
+
                     <div class="logo">
                         <a href="home.html"><img alt="" src="images/logo.png"></a>
                     </div><!-- logo  -->
@@ -203,7 +202,7 @@
                     <div class="wishlist-link">
                         <a href=""><span class="pe-7s-like"></span><span class="count">(0)</span></a>
                     </div>
-                    
+
                 </div>
             </div>
 
@@ -383,7 +382,7 @@
                                     <li class="level1 first parent">
                                         <a href="">
                                             <span>Product Elements</span>
-                                            
+
                                         </a>
                                         <span class="toggle-submenu"></span>
                                         <ul class="level1 submenu">

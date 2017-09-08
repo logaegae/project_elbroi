@@ -13,7 +13,8 @@ app.controller('SigninFormController', ['$scope', '$http', '$state', function($s
         if ( !response.data.user ) {
           $scope.authError = 'ID 혹은 비밀번호를 확인해주세요';
         }else{
-          $state.go('app.dashboard-v1');
+            $rootscope.user = {logged_in : true}
+            $state.go('app.dashboard-v1');
         }
       }, function(x) {
         $scope.authError = 'Server Error';
