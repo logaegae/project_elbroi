@@ -14,7 +14,7 @@
             </div>
 
             <div class="columns container">
-                
+
                 <div class="block-login">
                     <div class="row">
                         <div class="col-md-6">
@@ -25,15 +25,15 @@
                                 </div>
                                 <div class="block-content">
                                     <p class="text">안녕하세요, 엘브로이를 방문해주셔서 감사합니다.</p>
-                                    
-                                	<form class="loginForm"> 
+
+                                	<form class="loginForm">
 
                                         <div class="actions">
                                             <a href="" class="btn btn-face"><i class="fa fa-facebook" aria-hidden="true"></i>페이스북으로 로그인</a>
                                             <a href="" class="btn btn-twi"><i class="fa fa-twitter" aria-hidden="true"></i>트위터로 로그인</a>
                                         </div>
                                         <div class="form-group">
-                                            <label>EMAIL<sup>*</sup></label>                                            
+                                            <label>EMAIL<sup>*</sup></label>
                                             <input type="email" placeholder="" class="form-control loginEmail" name="email" value="<?php if( $this -> session -> userdata('saveAddress')){ echo $this -> session -> userdata('email');}?>">
                                         </div>
                                         <div class="form-group">
@@ -41,13 +41,13 @@
                                             <input type="password" placeholder="" id="forPassword" class="form-control loginPassword" name="password">
                                         </div>
                                         <p class="message"></p>
-                                        <div class="clearfix">                                        
+                                        <div class="clearfix">
                                             <div class="radio pull-left">
                                                 <label>
                                                     <input type="checkbox" value="Y" name="optionsRemember" class="loginOption">
                                                     <span>아이디 저장</span>
                                                 </label>
-                                                
+
                                             </div>
                                             <p class="help-block pull-right"><a href="">비밀번호를 잊으셨나요?</a></p>
                                         </div>
@@ -105,10 +105,10 @@
                         </div>
                     </div>
                 </div>
-               
-              
+
+
             </div>
-            
+
         </div><!-- site-main -->
 <script>
 
@@ -132,10 +132,10 @@
 				}else if(result["result"] == 'wrong'){
 					$('.message').text('이메일 혹은 비밀번호를 확인해주세요');
 				}else{
-					$('.message').text('올바른 값을 입력해주세요');					
+					$('.message').text('올바른 값을 입력해주세요');
 				}
 			},error:function(request,status,error){
-				alert("ERROR 잠시후 다시 시도해 주세요.");				
+				alert("ERROR 잠시후 다시 시도해 주세요.");
     			console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 			}
 		});
@@ -143,13 +143,12 @@
 	});
 // 회원가입
 	$('.signupForm').submit(function(e){
-		
+
 		var validation = true;
-		
+
 		($('.signupPassword').val() !== $('.signupRePassword').val()) ? validation = false : '';
-		
+
 		if(validation){
-			console.log("??");
 			$.ajax({
 				url: "account/signup",
 				type: "POST",
@@ -180,5 +179,5 @@
 		}
 		e.preventDefault();
 	});
-	
+
 </script>

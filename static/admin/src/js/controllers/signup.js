@@ -9,7 +9,7 @@ app.controller('SignupFormController', ['$scope', '$http', '$state', function($s
       // Try to create
       $http.post('api/signup', {name: $scope.user.name, email: $scope.user.email, password: $scope.user.password})
       .then(function(response) {
-        if ( !response.data.user ) {
+        if ( !response["result"] == 'success' ) {
           $scope.authError = response;
         }else{
           $state.go('app.dashboard-v1');
