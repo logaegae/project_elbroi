@@ -21,7 +21,7 @@
                             <div class="block-customer-login">
 
                                 <div class="block-title">
-									로그인
+                                  로그인
                                 </div>
                                 <div class="block-content">
                                     <p class="text">안녕하세요, 엘브로이를 방문해주셔서 감사합니다.</p>
@@ -60,7 +60,7 @@
                             <div class="block-new-customer">
 
                                 <div class="block-title">
-									회원가입
+                                  회원가입
                                 </div>
                                 <div class="block-content">
                                     <p class="text">아직 엘브로이의 회원이 아니신가요?</p>

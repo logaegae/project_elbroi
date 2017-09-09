@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class adminTemplate  extends CI_Controller {
+class AdminTemplate  extends CI_Controller {
 
 	function __construct()
 	{

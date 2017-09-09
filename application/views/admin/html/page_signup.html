@@ -28,6 +28,8 @@
           <div class="line line-dashed"></div>
           <p class="text-center"><small>이미 계정이 있으신가요?</small></p>
           <a ui-sref="access.signin" class="btn btn-lg btn-default btn-block">로그인</a>
+          <input type="hidden" ng-value="user.tokenKey = '<?php echo $this->security->get_csrf_token_name(); ?>'" ng-model="user.tokenKey">
+          <input type="hidden" ng-value="user.tokenVal = '<?php echo $this->security->get_csrf_hash(); ?>'" ng-model="user.tokenVal">
         </form>
       </div>
       <div class="text-center" ng-include="'/admin/html/blocks/page_footer.html'">

@@ -20,7 +20,7 @@ class Account extends CI_Controller {
 	public function login() {
 
 		$this->form_validation->set_rules('email', '이메일 주소', 'required|valid_email');
-		$this->form_validation->set_rules('password', '비밀번호', 'required|min_length[6]|max_length[16]');
+		$this->form_validation->set_rules('password', '비밀번호', 'required|min_length[6]|max_length[20]');
 
 		//입력폼 유효
 		if ($this -> form_validation -> run() == TRUE) {

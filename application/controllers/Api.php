@@ -15,7 +15,7 @@ class Api extends CI_Controller {
 
 		$this->form_validation->set_rules('email', '이메일 주소', 'required|valid_email|is_unique[Member.email]');
 		$this->form_validation->set_rules('name', '이름', 'required|min_length[3]|max_length[20]');
-		$this->form_validation->set_rules('password', '비밀번호', 'required|min_length[6]|max_length[16]|matches[re_password]');
+		$this->form_validation->set_rules('password', '비밀번호', 'required|min_length[6]|max_length[20]|matches[re_password]');
 
 		//입력폼 유효
 		if ($this -> form_validation -> run() == TRUE) {
