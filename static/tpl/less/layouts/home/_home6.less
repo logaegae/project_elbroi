@@ -1,0 +1,279 @@
+/* --------------------------
+	Home version 6
+--------------------------- */
+.block-slide {
+	.home-page6 &,
+	.home-page7 & {
+		top: 0;
+		margin-bottom: 0;
+		position: static;
+	}
+}
+.block-products.style2,
+.block-posts.style2 {
+	.block-title {
+		margin-bottom: 90px;
+	}
+	.owl-buttons {
+		position: absolute;
+		top: -60px;
+		left: 0;
+		right: 0;
+		text-align: center;
+		.owl-prev ,
+		.owl-next{
+			position: relative;
+			display: inline-block;
+			margin: 0 15px;
+			background-color: transparent;
+			border: 1px solid #e2e2e2;
+			color: #333333;
+			line-height: 28px;
+			top: 0;
+			margin-top: 0;
+
+			&:hover,
+			&:focus {
+				background-color: #131313;
+				border-color: #131313;
+				color: #fff;
+			}
+		}
+		.owl-prev {
+			&:after {
+				content: "";
+				width: 26px;
+				height: 2px;
+				border-top: 1px dashed  #7c7c7c;
+				
+				display: block;
+				position: absolute;
+				top: 14px;
+				right: -30px;
+			}
+		}
+	}
+}
+.block-posts.style2 {
+	.owl-buttons {
+		.owl-prev ,
+		.owl-next {
+			.style-black& {
+				color: #fff;
+			}
+		}
+	}
+}
+/*header*/
+.site-header.style2 {
+	.logo {
+		z-index: 10;
+	}
+	.header-content {
+		position: relative;
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.action.nav-toggle {
+		&:before {
+			content: none;
+		}
+		&:hover {
+			color: @color-theme;
+		}
+	}
+	.navigation {
+		.ui-menu {
+			> li {
+				position: relative;
+				&.megamenu {
+					position: static;
+				}
+				> a {
+					&:after {
+						content: none;
+					}
+				}
+				&.active,
+				&:hover {
+					> a {
+						color: @color-theme;
+					}
+				}
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+			.submenu {
+				left: auto;
+				right: 0;
+				.submenu {
+					right: 100%;
+				}
+			}
+		}
+	}
+}	
+.header-top {
+	background-color: #5d957b;
+	.container {
+		position: relative;
+	}
+	.header-link {
+		float: left;
+	}
+	.minicart-wrapper,
+	.customer-setting ,
+	.block-search {
+		float: right;
+		height: 43px;
+		margin-top: 0;
+		padding-top: 0;
+		.dropdown-toggle {
+			color: #fff;
+			font-size: 14px;
+			line-height: 43px;
+		}
+		.dropdown-menu {
+			top: 45px;
+			right: 15px;
+		}
+	}
+	.minicart-wrapper {
+		.dropdown-toggle {
+			width: auto;
+			font-size: 14px;
+			padding-left: 14px;
+			.counter {
+				background-color: transparent;
+				color: #fff;
+				position: static;
+				width: auto;
+				display: inline-block;
+				font-size: 12px;
+				text-transform: uppercase;
+				font-family: @font-family-two;
+			}
+		}
+	}
+	.header-link {
+		font-size: 12px;
+		font-family: @font-family-two;
+		text-transform: uppercase;
+		.dropdown-menu  {
+			position: static;
+			display: block;
+			opacity: 1;
+			visibility: visible;
+			padding: 0;
+			background-color: transparent;
+			box-shadow: none;
+			border: none;
+			margin: 0;
+			font-size: 12px;
+		}
+		.dropdown-toggle {
+			display: none;
+		}
+		li {
+			display: inline-block;
+			font-size: 12px;
+			a {
+				&:after {
+					content: "";
+					height: 10px;
+					width: 1px;
+					background-color: #aecabd;
+					display: block;
+					position: absolute;
+					top: 50%;
+					margin-top: -5px;
+					left: 0;
+				}
+			}
+			&:first-child {
+				a {
+					padding-left: 0;
+					&:after {
+						content: none;
+					}
+				}
+			}
+		}
+		a {
+			color: #fff;
+			padding: 0 13px;
+			line-height: 43px;
+			position: relative;
+			
+			&:hover {
+				color: #333;
+			}
+		}
+	}
+	.block-search {
+		position: relative;
+		&:hover {
+			.dropdown-menu {
+				width: 255px;
+				opacity: 1;
+				
+				.transition(0.3s);
+				visibility: visible;
+			}
+			.dropdown-toggle {
+				background-color: transparent;
+			}
+		}
+		.dropdown-toggle {
+			position: relative;
+			z-index: 30;
+			background-color: #5D957B;
+		}
+		.dropdown-menu {
+			box-shadow: none;
+			width: 0;
+			background-color: #54866e;
+			float: none;
+			right: 0;
+			top: 0;
+			z-index: 20;
+			opacity: 0;
+			left: auto;
+			min-width: auto;
+			visibility: hidden;
+		}
+		.minisearch {
+			margin: 0;
+			padding: 0;
+			float: none;
+			display: block;
+		}
+		.close-search {
+			display: none;
+		}
+		.control {
+			width: 100%;
+			float: none;
+			height: 100%;
+			padding: 0;
+			margin: 0;
+		}
+		.input-search {
+			margin: 0;
+			height: 100%;
+			
+			float: none;
+			display: block;
+			background-color: #54866e;
+			padding-left: 17px;
+			font-size: 13px;
+			font-family: @font-family-two;
+			text-transform: capitalize;
+			height: 43px;
+			color: #fff;
+			.placeholder(#fff);
+
+		}
+	}
+}
