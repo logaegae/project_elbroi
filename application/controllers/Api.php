@@ -67,7 +67,7 @@ class Api extends CI_Controller {
 				$this->load->helper('password');
 			}
 
-			$user = $this->Member_model->getByEmail($email);
+			$user = $this -> AdminMember_model -> getByEmail($email);
 
 			//로그인 성공
 			if(	$user != FALSE && $email == $user->email && password_verify($password, $user->password)) {

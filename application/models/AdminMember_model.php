@@ -7,11 +7,11 @@ class AdminMember_model extends CI_Model {
 
     function getList(){
 
-        return $this->db->query("SELECT * FROM Member")->result();
+        return $this->db->query("SELECT * FROM AdminMember")->result();
     }
 
     function getByEmail($option){
-    	$result = $this->db->get_where('Member', array('email'=> $option))->row();
+    	$result = $this->db->get_where('AdminMember', array('email'=> $option))->row();
     	if($result){
     		return $result;
     	} else {
@@ -21,7 +21,7 @@ class AdminMember_model extends CI_Model {
 
     //password_hash 없을 때
     function login($data) {
-    	$sql = "SELECT email FROM Member WHERE email = '" . $data['email'] . "' AND password = '" . $data['password'] . "' ";
+    	$sql = "SELECT email FROM AdminMember WHERE email = '" . $data['email'] . "' AND password = '" . $data['password'] . "' ";
 
     	$query = $this -> db -> query($sql);
 
