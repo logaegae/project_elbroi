@@ -76,39 +76,51 @@ class Api extends CI_Controller {
 						'adminLogged_in' => TRUE
 				);
 
-				$this->session->sess_expiration = 3600*24;
+				$this -> session -> sess_expiration = 3600*24;
 
 				$this -> session -> set_userdata($newdata);
 
-				$this->output->set_header('Content-Type: application/json; charset=utf-8');
+				$this -> output -> set_header('Content-Type: application/json; charset=utf-8');
 				echo json_encode(array("result"=> 'success'));
 				exit;
 
 			//로그인 실패
 			} else {
-				$this->output->set_header('Content-Type: application/json; charset=utf-8');
+				$this -> output -> set_header('Content-Type: application/json; charset=utf-8');
 				echo json_encode(array("result"=> 'wrong'));
 				exit;
 			}
 		//입력폼 비유효
 		} else {
-			$this->output->set_header('Content-Type: application/json; charset=utf-8');
+			$this -> output -> set_header('Content-Type: application/json; charset=utf-8');
 			echo json_encode(array("result"=> 'fail'));
 		}
 	}
 
 	public function auth(){
-		$auth = $this->session->userdata('adminLogged_in');
+		$auth = $this -> session->userdata('adminLogged_in');
 		if($auth){
 
-			$this->output->set_header('Content-Type: application/json; charset=utf-8');
+			$this -> output -> set_header('Content-Type: application/json; charset=utf-8');
 			echo json_encode(array("auth"=> $auth));
 
 		}else{
 
-			$this->output->set_header('Content-Type: application/json; charset=utf-8');
-			echo json_encode(array("auth"=> false));		
+			$this -> output -> set_header('Content-Type: application/json; charset=utf-8');
+			echo json_encode(array("auth"=> false));
 
 		}
+	}
+
+	public function logout() {
+
+		$array_items = array('adminEmail', 'adminLogged_in');
+
+		$this -> session -> unset_userdata($array_items);
+
+		redirect('/admin');
+
+		exit;
+
 	}
 }

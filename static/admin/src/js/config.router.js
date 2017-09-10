@@ -5,19 +5,22 @@
  */
 angular.module('app')
     .run(
-        ['$rootScope', '$state', '$stateParams', 'uiAuth',
-            function($rootScope, $state, $stateParams, uiAuth) {
+        ['$rootScope', '$state', '$stateParams', '$q', 'uiAuth',
+            function($rootScope, $state, $stateParams, $q, uiAuth) {
                 $rootScope.$state = $state;
                 $rootScope.$stateParams = $stateParams;
-                console.log(uiAuth)
-                var auth = uiAuth.isAuthenticate();
-                console.log(auth)
 
                 $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
-                    if (toState.authenticate && auth){
-                        // User isn’t authenticated
-                        $state.transitionTo("access.signin");
-                        event.preventDefault();
+                    if (toState.authenticate){
+
+                        var authResult = uiAuth.isAuthenticate();
+                        console.log("uiAuth.isAuthenticate() : "+ uiAuth.isAuthenticate())
+
+                        if (!authResult){
+                            // User isn’t authenticated
+                            $state.transitionTo("access.signin");
+                            event.preventDefault();
+                        }
                     }
                 });
             }
