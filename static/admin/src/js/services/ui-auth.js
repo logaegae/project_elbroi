@@ -1,11 +1,12 @@
+'use strict';
+
 angular.module('ui.auth', [])
-    .service('AuthService', function($q, $http, $state, $cacheFactory) {
+    .service('uiAuth', ['$q', '$http', '$state', '$cacheFactory', function($q, $http, $state, $cacheFactory) {
 
-        var API = 'api/auth',
+        var API = '/api/auth',
             cache = $cacheFactory('auth');
-
         // 로그인 정보 조회
-        function isAuthenticated() {
+        this.isAuthenticate = function() {
 
             var deferred = $q.defer();
 
@@ -19,6 +20,7 @@ angular.module('ui.auth', [])
                 // 캐쉬에 인증정보가 없으면 백엔드에 호출함
                 $http.get(API)
                 .success(function(result) {
+                  console.log(result)
                     cache.put('auth', result.data['auth']); // 캐쉬에 인증정보 저장
                     deferred.resolve(cache.get('auth')); // 인증정보 반환
                 })
@@ -34,7 +36,5 @@ angular.module('ui.auth', [])
 
             }
 
-            this.get = get;
-
         }
-    });
+    }]);

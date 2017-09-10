@@ -70,7 +70,7 @@ class Api extends CI_Controller {
 			$user = $this -> AdminMember_model -> getByEmail($email);
 
 			//로그인 성공
-			if(	$user != FALSE && $email == $user->email && password_verify($password, $user->password)) {
+			if(	$user != FALSE && $email == $user -> email && password_verify($password, $user->password)) {
 				$newdata = array(
 						'adminEmail' => $user -> email,
 						'adminLogged_in' => TRUE
@@ -100,8 +100,15 @@ class Api extends CI_Controller {
 	public function auth(){
 		$auth = $this->session->userdata('adminLogged_in');
 		if($auth){
+
 			$this->output->set_header('Content-Type: application/json; charset=utf-8');
 			echo json_encode(array("auth"=> $auth));
+
+		}else{
+
+			$this->output->set_header('Content-Type: application/json; charset=utf-8');
+			echo json_encode(array("auth"=> false));		
+
 		}
 	}
 }
