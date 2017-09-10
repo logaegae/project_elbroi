@@ -10,11 +10,13 @@
       </div>
       <div class="list-group list-group-sm">
         <div class="list-group-item">
-          <input type="email" placeholder="이메일" class="form-control no-border" ng-model="user.id" required>
+          <input type="email" placeholder="이메일" class="form-control no-border" ng-model="user.email" required>
         </div>
         <div class="list-group-item">
            <input type="password" placeholder="비밀번호" class="form-control no-border" ng-model="user.password" required>
         </div>
+        <input type="hidden" ng-value="user.tokenKey = '<?php echo $this->security->get_csrf_token_name(); ?>'" ng-model="user.tokenKey">
+        <input type="hidden" ng-value="user.tokenVal = '<?php echo $this->security->get_csrf_hash(); ?>'" ng-model="user.tokenVal">
       </div>
       <button type="submit" class="btn btn-lg btn-primary btn-block" ng-click="login()" ng-disabled='form.$invalid'>로그인</button>
       <div class="text-center m-t m-b"><a ui-sref="access.forgotpwd">비밀번호 찾기</a></div>
