@@ -13,9 +13,9 @@ class Api extends CI_Controller {
 
 	public function signup() {
 
-		$this->form_validation->set_rules('email', '이메일 주소', 'required|valid_email|is_unique[Member.email]');
+		$this->form_validation->set_rules('email', '이메일 주소', 'required|valid_email|is_unique[AdminMember.email]');
 		$this->form_validation->set_rules('name', '이름', 'required|min_length[3]|max_length[20]');
-		$this->form_validation->set_rules('password', '비밀번호', 'required|min_length[6]|max_length[16]|matches[re_password]');
+		$this->form_validation->set_rules('password', '비밀번호', 'required|min_length[6]|max_length[20]');
 
 		//입력폼 유효
 		if ($this -> form_validation -> run() == TRUE) {
@@ -51,5 +51,49 @@ class Api extends CI_Controller {
 			echo json_encode(array("result"=> 'wrong'));
 		}
 
+	}
+
+	public function signin() {
+
+		$this->form_validation->set_rules('email', '이메일 주소', 'required|valid_email');
+		$this->form_validation->set_rules('password', '비밀번호', 'required|min_length[6]|max_length[20]');
+
+		//입력폼 유효
+		if ($this -> form_validation -> run() == TRUE) {
+			$email = trim($this->input->post('email', TRUE));
+			$password = trim($this->input->post('password', TRUE));
+
+			if(!function_exists('password_hash')){
+				$this->load->helper('password');
+			}
+
+			$user = $this->Member_model->getByEmail($email);
+
+			//로그인 성공
+			if(	$user != FALSE && $email == $user->email && password_verify($password, $user->password)) {
+				$newdata = array(
+						'adminEmail' => $user -> email,
+						'adminLogged_in' => TRUE
+				);
+
+				$this->session->sess_expiration = 3600*24;
+
+				$this -> session -> set_userdata($newdata);
+
+				$this->output->set_header('Content-Type: application/json; charset=utf-8');
+				echo json_encode(array("result"=> 'success'));
+				exit;
+
+			//로그인 실패
+			} else {
+				$this->output->set_header('Content-Type: application/json; charset=utf-8');
+				echo json_encode(array("result"=> 'wrong'));
+				exit;
+			}
+		//입력폼 비유효
+		} else {
+			$this->output->set_header('Content-Type: application/json; charset=utf-8');
+			echo json_encode(array("result"=> 'fail'));
+		}
 	}
 }
