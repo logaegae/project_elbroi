@@ -5,24 +5,10 @@
  */
 angular.module('app')
     .run(
-        ['$rootScope', '$state', '$stateParams', '$q', 'uiAuth',
-            function($rootScope, $state, $stateParams, $q, uiAuth) {
+        ['$rootScope', '$state', '$stateParams', '$q',
+            function($rootScope, $state, $stateParams, $q) {
                 $rootScope.$state = $state;
                 $rootScope.$stateParams = $stateParams;
-
-                $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
-                    if (toState.authenticate){
-
-                        var authResult = uiAuth.isAuthenticate();
-                        console.log("uiAuth.isAuthenticate() : "+ uiAuth.isAuthenticate())
-
-                        if (!authResult){
-                            // User isn’t authenticated
-                            $state.transitionTo("access.signin");
-                            event.preventDefault();
-                        }
-                    }
-                });
             }
         ]
     )
@@ -48,8 +34,10 @@ angular.module('app')
                     .state('app.dashboard-v1', {
                         url: '/dashboard-v1',
                         templateUrl: '/admin/html/app_dashboard_v1.html',
-                        resolve: load(['/static/admin/src/js/controllers/chart.js']),
-                        authenticate: true
+                        resolve: {
+                            deps : load(['/static/admin/src/js/controllers/chart.js']),
+                            auth : isAuthenticate()
+                        }
                     })
                     .state('app.dashboard-v2', {
                         url: '/dashboard-v2',
@@ -456,8 +444,7 @@ angular.module('app')
                     });
 
                 function load(srcs, callback) {
-                    return {
-                        deps: ['$ocLazyLoad', '$q',
+                    return ['$ocLazyLoad', '$q',
                             function($ocLazyLoad, $q) {
                                 var deferred = $q.defer();
                                 var promise = false;
@@ -486,11 +473,52 @@ angular.module('app')
                                 }) : promise;
                             }
                         ]
-                    }
+                }
+
+                function isAuthenticate(){
+                    return ['$q', '$http', '$state',
+                            function($q, $http, $state) {
+                                var deferred = $q.defer();
+                                var promise = false;
+
+                                if (!promise) {
+                                    promise = deferred.promise;
+                                }
+
+                                promise = promise.then(function() {
+                                    var API = '/api/auth';
+                                    // 인증정보가 없으면 백엔드에 호출함
+                                    $http.get(API)
+                                    .success(function(result) {
+
+                                        if(!result['auth']){
+
+                                            //미로그인
+                                            $state.go('access.signin');
+
+                                        }
+                                        // 인증정보 저장
+                                        return {
+                                            auth : result['auth'],
+                                            adminEmail : result['adminEmail']
+                                        }
+
+                                    })
+                                    .error(function() {
+
+                                        $state.go('access.signin');
+
+                                    });
+                                });
+
+                                deferred.resolve();
+                                return promise;
+                            }
+                        ]
                 }
 
                 $urlRouterProvider.otherwise("/access/signin");
 
             }
         ]
-    );
+    )

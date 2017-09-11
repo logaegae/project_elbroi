@@ -99,10 +99,11 @@ class Api extends CI_Controller {
 
 	public function auth(){
 		$auth = $this -> session->userdata('adminLogged_in');
+		$adminEmail = $this -> session->userdata('adminEmail');
 		if($auth){
 
 			$this -> output -> set_header('Content-Type: application/json; charset=utf-8');
-			echo json_encode(array("auth"=> $auth));
+			echo json_encode(array("auth"=> $auth, "adminEmail" => $adminEmail));
 
 		}else{
 
