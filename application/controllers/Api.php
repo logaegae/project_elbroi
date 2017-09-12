@@ -124,4 +124,36 @@ class Api extends CI_Controller {
 		exit;
 
 	}
+
+	public function upload(){
+
+		$json = array();
+
+		$config['upload_path']          = './static/uploads';
+        $config['allowed_types']        = 'gif|jpg|png';
+		$config['file_ext_tolower']     = TRUE;
+        $config['max_size']             = 1024*1024*2;
+        $config['max_width']            = 1920;
+        $config['max_height']           = 1080;
+	    $config['encrypt_name']         = TRUE;
+
+	    $this->load->library('upload', $config);
+
+	    $this->upload->initialize($config);
+
+	    if ( ! $this->upload->do_upload('file') )
+	    {
+	        $json = array('error' => true, 'message' => $this->upload->display_errors());
+	    }
+	    else
+	    {
+	        $upload_details = $this->upload->data();
+
+	        $json = array('success' => true, 'message' => '전송이 완료되었습니다', 'newfilename' => $upload_details['file_name']);
+	    }
+
+		$this->output->set_header('Content-Type: application/json; charset=utf-8');
+		echo json_encode($json);
+
+	}
 }

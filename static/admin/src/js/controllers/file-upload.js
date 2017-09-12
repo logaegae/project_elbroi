@@ -1,15 +1,23 @@
 app.controller('FileUploadCtrl', ['$scope', 'FileUploader', function($scope, FileUploader) {
+
+    $scope.user = {};
+    $scope.message = '';
+
+    var data = window.token;
+
     var uploader = $scope.uploader = new FileUploader({
-        url: 'js/controllers/upload.php'
+        url: 'api/upload',
+        formData: [data],
     });
 
     // FILTERS
 
     uploader.filters.push({
-        name: 'customFilter',
-        fn: function(item /*{File|FileLikeObject}*/, options) {
-            return this.queue.length < 10;
-        }
+        name: 'imageFilter',
+            fn: function(item /*{File|FileLikeObject}*/, options) {
+                var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
+                return '|jpg|png|jpeg|bmp|gif|'.indexOf(type) !== -1;
+            }
     });
 
     // CALLBACKS
@@ -43,6 +51,9 @@ app.controller('FileUploadCtrl', ['$scope', 'FileUploader', function($scope, Fil
     };
     uploader.onCompleteItem = function(fileItem, response, status, headers) {
         console.info('onCompleteItem', fileItem, response, status, headers);
+
+        $scope.message = response.message;
+
     };
     uploader.onCompleteAll = function() {
         console.info('onCompleteAll');

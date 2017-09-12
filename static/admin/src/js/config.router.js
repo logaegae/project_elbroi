@@ -517,7 +517,7 @@ angular.module('app')
                         ]
                 }
 
-                $urlRouterProvider.otherwise("/access/signin");
+                $urlRouterProvider.otherwise("/app/dashboard-v1");
 
             }
         ]

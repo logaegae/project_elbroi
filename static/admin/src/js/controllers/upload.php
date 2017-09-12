@@ -7,14 +7,14 @@ if ( !empty( $_FILES ) ) {
 
     move_uploaded_file( $tempPath, $uploadPath );
 
-    $answer = array( 'answer' => 'File transfer completed' );
+    $answer = array( 'answer' => '파일전송이 완료되었습니다' );
     $json = json_encode( $answer );
 
     echo $json;
 
 } else {
 
-    echo 'No files';
+    echo '선택된 파일이 없습니다';
 
 }
 
