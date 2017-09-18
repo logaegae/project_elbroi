@@ -410,7 +410,7 @@
   <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
     <span>사이트 관리</span>
   </li>
-  <li>
+  <li ng-class="{active:$state.includes('app.site')}">
     <a href class="auto">
       <span class="pull-right text-muted">
         <i class="fa fa-fw fa-angle-right text"></i>
@@ -419,9 +419,14 @@
       <i class="glyphicon glyphicon-stats icon text-primary-dker"></i>
       <span class="font-bold">사이트 이미지</span>
     </a>
-    <ul class="nav nav-sub dk">      
+    <ul class="nav nav-sub dk">
+      <li class="nav-sub-header">
+        <a href>
+          <span>사이트 이미지</span>
+        </a>
+      </li>
       <li ui-sref-active="active">
-        <a ui-sref="app.dashboard-v1">
+        <a ui-sref="app.site.mainImage">
           <span>메인</span>
         </a>
       </li>

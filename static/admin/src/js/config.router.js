@@ -49,6 +49,15 @@ angular.module('app')
                         templateUrl: '/admin/html/app_dashboard_v3.html',
                         resolve: load(['/static/admin/src/js/controllers/chart.js'])
                     })
+                    .state('app.site', {
+                        url: '/site',
+                        template: '<div ui-view class="fade-in-up"></div>'
+                    })
+                    .state('app.site.mainImage', {
+                        url: '/mainImage',
+                        templateUrl: '/admin/html/siteImage_main.html',
+                        resolve: load(['angularFileUpload', '/static/admin/src/js/controllers/file-upload.js'])
+                    })
                     .state('app.ui', {
                         url: '/ui',
                         template: '<div ui-view class="fade-in-up"></div>'
@@ -77,6 +86,7 @@ angular.module('app')
                         url: '/sortable',
                         templateUrl: '/admin/html/ui_sortable.html'
                     })
+
                     .state('app.ui.scroll', {
                         url: '/scroll',
                         templateUrl: '/admin/html/ui_scroll.html',

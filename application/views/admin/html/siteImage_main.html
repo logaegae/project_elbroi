@@ -1,0 +1,169 @@
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">메인 이미지</h1>
+</div>
+<div class="wrapper-md">
+  <h4 class="m-t-none m-b">메인 이미지 정렬 <small>(터치 불가)</small></h4>
+  <ul ui-jq="sortable" class="list-group gutter list-group-lg list-group-sp" >
+    <li class="list-group-item bg-primary">
+      <span class="pull-right" >
+        <a href><i class="fa fa-pencil fa-fw m-r-xs"></i></a>
+        <a href><i class="fa fa-plus fa-fw m-r-xs"></i></a>
+        <a href><i class="fa fa-times fa-fw"></i></a>
+      </span>
+      <span class="pull-left"><i class="fa fa-sort text-muted fa m-r-sm"></i> </span>
+      <div class="clear">
+        Browser compatibility
+      </div>
+    </li>
+    <li class="list-group-item bg-info">
+      <span class="pull-right" >
+        <a href><i class="fa fa-pencil fa-fw m-r-xs"></i></a>
+        <a href><i class="fa fa-plus fa-fw m-r-xs"></i></a>
+        <a href><i class="fa fa-times fa-fw"></i></a>
+      </span>
+      <span class="pull-left"><i class="fa fa-sort text-muted fa m-r-sm"></i> </span>
+      <div class="clear">
+        Looking for more example templates
+      </div>
+    </li>
+    <li class="list-group-item bg-success">
+     <span class="pull-right" >
+        <a href><i class="fa fa-pencil fa-fw m-r-xs"></i></a>
+        <a href><i class="fa fa-plus fa-fw m-r-xs"></i></a>
+        <a href><i class="fa fa-times fa-fw"></i></a>
+      </span>
+      <span class="pull-left"><i class="fa fa-sort text-muted fa m-r-sm"></i> </span>
+      <div class="clear">
+        Customizing components
+      </div>
+    </li>
+    <li class="list-group-item">
+      <span class="pull-right" >
+        <a href><i class="fa fa-pencil fa-fw m-r-xs"></i></a>
+        <a href><i class="fa fa-plus fa-fw m-r-xs"></i></a>
+        <a href><i class="fa fa-times fa-fw"></i></a>
+      </span>
+      <span class="pull-left"><i class="fa fa-sort text-muted fa m-r-sm"></i> </span>
+      <div class="clear">
+        The fastest way to get started
+      </div>
+    </li>
+    <li class="list-group-item">
+      <span class="pull-right" >
+        <a href><i class="fa fa-fw m-r-xs fa-pencil"></i></a>
+        <a href><i class="fa fa-fw m-r-xs fa-plus"></i></a>
+        <a href><i class="fa fa-fw fa-times"></i></a>
+      </span>
+      <span class="pull-left"><i class="fa fa-sort text-muted fa m-r-sm"></i> </span>
+      <div class="clear">
+        HTML5 doctype required
+      </div>
+    </li>
+  </ul>
+
+  <div class="text-right">
+    <button class="btn m-b-xs w-xs btn-primary">확인</button>
+  </div>
+</div>
+
+<div class="hbox hbox-auto-xs hbox-auto-sm" ng-controller="FileUploadCtrl"  nv-file-drop="" uploader="uploader" filters="queueLimit, customFilter">
+  <div class="col w-lg bg-light b-r bg-auto">
+    <div class="wrapper-md dker b-b">
+      <h3 class="m-n font-thin">파일 선택</h3>
+    </div>
+    <div class="wrapper-md">
+      <div ng-show="uploader.isHTML5" class="m-b-md">
+
+          <!-- Example: nv-file-drop="" uploader="{Object}" options="{Object}" filters="{String}" -->
+          <div nv-file-drop="" uploader="uploader" options="{ url: 'api/upload' }" filters="imageFilter">
+              <div nv-file-over="" uploader="uploader" over-class="b-danger" class="b-a b-2x b-dashed wrapper-lg lter text-center">
+                  드래그하여 이미지 업로드
+              </div>
+          </div>
+      </div>
+
+      <!-- Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" -->
+      <p>여러개 선택</p>
+      <input type="file" nv-file-select="" uploader="uploader" multiple  />
+    </div>
+  </div>
+  <div class="col">
+    <div class="wrapper-md bg-light dk b-b">
+      <span class="pull-right m-t-xs">업로드 갯수: <b class="badge bg-info">{{ uploader.queue.length }}</b></span>
+      <h3 class="m-n font-thin">업로드 리스트</h3>
+    </div>
+    <div class="wrapper-md">
+      <table class="table bg-white-only b-a">
+          <thead>
+              <tr>
+                  <th width="50%">파일명</th>
+                  <th ng-show="uploader.isHTML5">사이즈</th>
+                  <th ng-show="uploader.isHTML5">진행도</th>
+                  <th>상태</th>
+                  <th>버튼</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr ng-repeat="item in uploader.queue">
+                  <td>
+                      <strong>{{ item.file.name }}</strong>
+                        <!-- Image preview -->
+                        <!--auto height-->
+                        <!--<div ng-thumb="{ file: item.file, width: 100 }"></div>-->
+                        <!--auto width-->
+                        <div ng-show="uploader.isHTML5" ng-thumb="{ file: item._file, height: 100 }"></div>
+                        <!--fixed width and height -->
+                        <!--<div ng-thumb="{ file: item.file, width: 100, height: 100 }"></div>-->
+                  </td>
+                  <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
+                  <td ng-show="uploader.isHTML5">
+                      <div class="progress progress-sm m-b-none m-t-xs">
+                          <div class="progress-bar bg-info" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                      </div>
+                  </td>
+                  <td class="text-center">
+                      <span ng-show="item.isSuccess" class="text-success"><i class="glyphicon glyphicon-ok"></i></span>
+                      <span ng-show="item.isCancel" class="text-warning"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                      <span ng-show="item.isError" class="text-danger"><i class="glyphicon glyphicon-remove"></i></span>
+                  </td>
+                  <td nowrap>
+                      <button type="button" class="btn btn-default btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                          업로드
+                      </button>
+                      <button type="button" class="btn btn-default btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
+                          취소
+                      </button>
+                      <button type="button" class="btn btn-default btn-xs" ng-click="item.remove()">
+                          제거
+                      </button>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+      <div>
+        <div>
+          <p>진행도:</p>
+          <div class="progress bg-light dker" style="">
+              <div class="progress-bar progress-bar-striped bg-info" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
+          </div>
+        </div>
+        <button type="button" class="btn btn-addon btn-success" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">
+          <i class="fa fa-arrow-circle-o-up"></i> 모두 업로드
+        </button>
+        <button type="button" class="btn btn-addon btn-warning" ng-click="uploader.cancelAll()" ng-disabled="!uploader.isUploading">
+          <i class="fa fa-ban"></i> 모두 취소
+        </button>
+        <button type="button" class="btn btn-addon btn-danger" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length">
+            <i class="fa fa-trash-o"></i> 모두 제거
+        </button>
+      </div>
+      <br>
+      <p>{{message}}</p>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+    window.token = {
+        <?php echo $this->security->get_csrf_token_name(); ?> : '<?php echo $this->security->get_csrf_hash(); ?>'
+    };
+</script>
