@@ -749,7 +749,7 @@ module
              * @private
              */
             FileLikeObject.prototype._createFromFakePath = function(path) {
-                this.lastModifiedDate = null;
+                this.lastModified = null;
                 this.size = null;
                 this.type = 'like/' + path.slice(path.lastIndexOf('.') + 1).toLowerCase();
                 this.name = path.slice(path.lastIndexOf('/') + path.lastIndexOf('\\') + 2);
@@ -760,7 +760,7 @@ module
              * @private
              */
             FileLikeObject.prototype._createFromObject = function(object) {
-                this.lastModifiedDate = angular.copy(object.lastModifiedDate);
+                this.lastModified = angular.copy(object.lastModified);
                 this.size = object.size;
                 this.type = object.type;
                 this.name = object.name;

@@ -54,6 +54,8 @@ app.controller('FileUploadCtrl', ['$scope', 'FileUploader', function($scope, Fil
 
         $scope.message = response.message;
 
+        $scope.$emit('uploaded', {message: fileItem});
+
     };
     uploader.onCompleteAll = function() {
         console.info('onCompleteAll');

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class AdminAccount extends CI_Controller {
+class Api extends CI_Controller {
 
 	function __construct(){
 
@@ -32,7 +32,7 @@ class AdminAccount extends CI_Controller {
 
 		}else{
 
-	    $upload_details = $this->upload->data();
+	    $upload_details = $this -> upload -> data();
 		$json = array('success' => true, 'message' => '전송이 완료되었습니다', 'newfilename' => $upload_details['file_name']);
 
 			$option = array(
@@ -52,7 +52,13 @@ class AdminAccount extends CI_Controller {
 
 	}
 
-	public function mainSiteImage(){
+	public function getMainList(){
+
+		$result = $this -> UploadedFiles_model -> getMainList();
+		$this->output->set_header('Content-Type: application/json; charset=utf-8');
+
+		$json = array('list' => $result);
+		echo json_encode($json);
 
 	}
 	public function siteUpload(){

@@ -56,7 +56,7 @@ angular.module('app')
                     .state('app.site.mainImage', {
                         url: '/mainImage',
                         templateUrl: '/admin/html/siteImage_main.html',
-                        resolve: load(['/static/admin/src/js/controllers/mainImage.js', '/static/admin/src/js/controllers/file-upload.js'])
+                        resolve: load(['/static/admin/src/js/controllers/mainImage.js', 'angularFileUpload', '/static/admin/src/js/controllers/file-upload.js'])
                     })
                     .state('app.ui', {
                         url: '/ui',
@@ -496,7 +496,7 @@ angular.module('app')
                                 }
 
                                 promise = promise.then(function() {
-                                    var API = '/api/auth';
+                                    var API = '/adminAccount/auth';
                                     // 인증정보가 없으면 백엔드에 호출함
                                     $http.get(API)
                                     .success(function(result) {
