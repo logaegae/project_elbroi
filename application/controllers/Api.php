@@ -149,11 +149,22 @@ class Api extends CI_Controller {
 	    {
 	        $upload_details = $this->upload->data();
 
+			$data = array(
+		        'url' => $config['upload_path']./.$upload_details['file_name'])
+			);
+
+			$result = $this -> Member_model -> login($data);
+
 	        $json = array('success' => true, 'message' => '전송이 완료되었습니다', 'newfilename' => $upload_details['file_name']);
+
+
 	    }
 
 		$this->output->set_header('Content-Type: application/json; charset=utf-8');
 		echo json_encode($json);
 
+	}
+	public function siteUpload(){
+		upload();
 	}
 }
