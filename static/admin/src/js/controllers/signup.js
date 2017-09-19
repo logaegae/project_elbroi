@@ -15,7 +15,7 @@ app.controller('SignupFormController', ['$scope', '$http', '$state', function($s
         // Try to create
         $http({
             method : 'POST',
-            url : 'api/signup',
+            url : 'adminAccount/signup',
             data : data,
             headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
         })

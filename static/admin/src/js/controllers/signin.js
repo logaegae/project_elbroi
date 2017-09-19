@@ -15,7 +15,7 @@ app.controller('SigninFormController', ['$scope', '$http', '$state', function($s
         data = $.param(data);
         $http({
             method : 'POST',
-            url : 'api/signin',
+            url : 'adminAccount/signin',
             data : data,
             headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
         })

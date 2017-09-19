@@ -3,7 +3,7 @@
 angular.module('ui.auth', [])
     .service('uiAuth', ['$q', '$http', '$state', '$rootScope', function($q, $http, $state, $rootScope) {
 
-        var API = '/api/auth';
+        var API = '/adminAccount/auth';
         var deferred = $q.defer();
 
         // 로그인 정보 조회

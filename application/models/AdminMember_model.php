@@ -11,7 +11,7 @@ class AdminMember_model extends CI_Model {
     }
 
     function getByEmail($option){
-    	$result = $this->db->get_where('AdminMember', array('email'=> $option))->row();
+    	$result = $this ->db -> get_where('AdminMember', array('email'=> $option))->row();
     	if($result){
     		return $result;
     	} else {
@@ -34,14 +34,14 @@ class AdminMember_model extends CI_Model {
 
     function signup($data) {
 
-		$memberData = array(
-			'email' => $data['email'],
-			'name' => $data['name'],
-			'password' => $data['password']
-		);
+  		$memberData = array(
+  			'email' => $data['email'],
+  			'name' => $data['name'],
+  			'password' => $data['password']
+  		);
 
-		$this->db->insert('AdminMember', $memberData);
-		$result = $this->db->insert_id();
-		return $result;
+  		$this -> db -> insert('AdminMember', $memberData);
+  		$result = $this -> db -> insert_id();
+  		return $result;
     }
 }

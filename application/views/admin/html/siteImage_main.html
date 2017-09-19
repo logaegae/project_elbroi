@@ -1,8 +1,9 @@
 <div class="bg-light lter b-b wrapper-md">
   <h1 class="m-n font-thin h3">메인 이미지</h1>
 </div>
-<div class="wrapper-md">
+<div class="wrapper-md" ng-controller="MainImageController">
   <h4 class="m-t-none m-b">메인 이미지 정렬 <small>(터치 불가)</small></h4>
+  <p>{{state}}</p>
   <ul ui-jq="sortable" class="list-group gutter list-group-lg list-group-sp" >
     <li class="list-group-item bg-primary">
       <span class="pull-right" >
