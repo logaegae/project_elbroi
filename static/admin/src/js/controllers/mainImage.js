@@ -1,16 +1,18 @@
 'use strict';
 
 // signin controller
-app.controller('MainImageController', ['$scope', '$http', function($scope, $http) {
+app.controller('MainImageController', ['$scope', '$http', 'SiteMainUploadCheck', function($scope, $http, SiteMainUploadCheck) {
     $scope.list = {};
     $scope.state = null;
+    $scope.check = SiteMainUploadCheck;
+
+    if($scope.check['uploaded']){
+        console.log('uploaded');
+        $scope.check['uploaded'] = false;
+    }
+
     var data = window.token;
     data = $.param(data);
-
-
-    $scope.$on('uploaded', function(event, args) {
-        $scope.state = args.message;
-    });
 
     $scope.getList = function(){
         $scope.authError = null;

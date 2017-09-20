@@ -23,7 +23,6 @@ class Api extends CI_Controller {
 		$config['encrypt_name']         = TRUE;
 
 		$this -> load -> library('upload', $config);
-
 		$this -> upload -> initialize($config);
 
 		if ( ! $this->upload->do_upload('file') ){
@@ -35,16 +34,24 @@ class Api extends CI_Controller {
 	    $upload_details = $this -> upload -> data();
 		$json = array('success' => true, 'message' => '전송이 완료되었습니다', 'newfilename' => $upload_details['file_name']);
 
-			$option = array(
-				'url' => $config['upload_path'].'/'.$upload_details['file_name']
-			);
+		$option = array(
+			'url' => $config['upload_path'].'/'.$upload_details['file_name']
+		);
 
-			$result = $this -> UploadedFiles_model -> uploadList($option);
-			if($result){
+		$code = $this -> input -> post('code');
+		if($code){
+			$option['code'] = $code;
+		}
 
-				$json['message'] = 'message'.$result;
+		$result = $this -> UploadedFiles_model -> uploadList($option);
+		if($result){
 
-			}
+			$json['message'] = 'message'.$result;
+
+		}else{
+			$json['success'] = false;
+			$json['message'] = '기록 실패';
+		}
     }
 
 		$this->output->set_header('Content-Type: application/json; charset=utf-8');
