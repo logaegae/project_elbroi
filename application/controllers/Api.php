@@ -39,8 +39,10 @@ class Api extends CI_Controller {
 		);
 
 		$code = $this -> input -> post('code');
-		if($code){
+		$updateId = $this -> input -> post('updateId');
+		if($code && $updateId){
 			$option['code'] = $code;
+			$option['updateId'] = $updateId;
 		}
 
 		$result = $this -> UploadedFiles_model -> uploadList($option);

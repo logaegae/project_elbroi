@@ -1,8 +1,7 @@
-app.controller('FileUploadCtrl', ['$scope', 'FileUploader', 'SiteMainUploadCheck', function($scope, FileUploader, SiteMainUploadCheck) {
+app.controller('FileUploadCtrl', ['$rootScope', '$scope', 'FileUploader', function($rootScope, $scope, FileUploader) {
 
     $scope.user = {};
     $scope.message = '';
-    $scope.check = SiteMainUploadCheck;
     var data = window.token;
 
     var uploader = $scope.uploader = new FileUploader({
@@ -55,7 +54,7 @@ app.controller('FileUploadCtrl', ['$scope', 'FileUploader', 'SiteMainUploadCheck
     };
     uploader.onCompleteAll = function() {
         console.info('onCompleteAll');
-        $scope.check['uploaded'] = true;
+        $rootScope.$broadcast('uploaded', true);
     };
 
     console.info('uploader', uploader);

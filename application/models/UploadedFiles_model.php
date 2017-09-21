@@ -16,7 +16,7 @@ class UploadedFiles_model extends CI_Model {
             $data = array(
     			'code' => $option['code'],
                 'uploadedFileId' => $result,
-                'updateId' => 'admin@elbroi.com'
+                'updateId' => $option['updateId']
             );
             $this -> db -> insert('SiteImage', $data);
         }
@@ -25,8 +25,12 @@ class UploadedFiles_model extends CI_Model {
     }
 
     function getMainList(){
-
-      return $this -> db -> query("SELECT * FROM UploadedFiles") -> result();
+        $query = "SELECT s.id, s.priority, s.registrationDate, s.uploadedDate, s.updateId, u.url ";
+        $query .= "FROM UploadedFiles AS u INNER JOIN SiteImage AS s ";
+        $query .= "ON s.uploadedFileId = u.id ";
+        $query .= "WHERE s.delYn = 'N' AND u.delYn = 'N'";
+        $query .= "ORDER BY s.priority, s.id DESC";
+        return $this -> db -> query($query) -> result();
 
     }
 }

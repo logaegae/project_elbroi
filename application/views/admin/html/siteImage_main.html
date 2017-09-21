@@ -5,23 +5,24 @@
     <h4 class="m-t-none m-b">메인 이미지 정렬 <small>(터치 불가)</small></h4>
     <p>{{state}}</p>
     <p>{{list.length}}개의 메인 이미지가 등록되어있습니다.</p>
-    <p>{{check.uploaded}}</p>
     <ul ui-jq="sortable" class="list-group gutter list-group-lg list-group-sp">
 
         <li class="list-group-item" ng-repeat="item in list">
+            <span>{{$index + 1}}</span>
             <span class="pull-right">
-            <a href><i class="fa fa-times fa-fw"></i></a>
-          </span>
+                <a href><i class="fa fa-times fa-fw"></i></a>
+            </span>
             <span class="pull-left"><i class="fa fa-sort text-muted fa m-r-sm"></i> </span>
             <div class="text-center">
-                <img src="{{item.url}}" width="300px" alt="">
+                <img ng-src="{{item.url}}" height="100px" alt="">
             </div>
             <div class="clear mt10 text-right">
-                등록일 : {{item.uploadedDate}}
+                <div>등록일 : {{item.registrationDate}}</div>
+                <div ng-if="item.uploadedDate != '0000-00-00 00:00:00'">등록일 : {{item.uploadedDate}}<br/></div>
+                <div>등록자 : {{item.updateId}}</div>
             </div>
         </li>
     </ul>
-
     <div class="text-right">
         <button class="btn m-b-xs w-xs btn-primary">확인</button>
     </div>
@@ -126,6 +127,7 @@
 <script type="text/javascript">
     window.token = {
         <?php echo $this->security->get_csrf_token_name(); ?>: '<?php echo $this->security->get_csrf_hash(); ?>',
-        code: 'SITE_MAIN_IMAGE'
+        code: 'SITE_MAIN_IMAGE',
+        updateId : '<?php echo $_SESSION['adminEmail'] ?>'
     };
 </script>
