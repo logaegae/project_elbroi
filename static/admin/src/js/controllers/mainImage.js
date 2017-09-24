@@ -4,6 +4,14 @@
 app.controller('MainImageController', ['$scope', '$http', function($scope, $http) {
     $scope.list = {};
     $scope.state = null;
+    $scope.orderChanged = false;
+
+    $scope.sortableOptions = {
+		containment: '#sortable-wrapper',
+	    orderChanged: function (event) {
+	    	$scope.orderChanged = true;
+	    }
+	};
 
     $scope.$on('uploaded', function(e, m){
       if(m){
@@ -29,5 +37,13 @@ app.controller('MainImageController', ['$scope', '$http', function($scope, $http
             $scope.state = 'Server Error';
         });
     };
+
+    $scope.saveOrder = function(){
+        console.log($scope.list);
+    }
+
+    $scope.deleteItem = function(e){
+        console.log("id : " + e)
+    }
 
   }]);

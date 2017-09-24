@@ -1,19 +1,19 @@
 <div class="bg-light lter b-b wrapper-md">
     <h1 class="m-n font-thin h3">메인 이미지</h1>
 </div>
-<div class="wrapper-md" ng-controller="MainImageController" ng-init="getList()">
+<div class="wrapper-md" ng-controller="MainImageController" ng-init="getList()" id="sortable-wrapper">
     <h4 class="m-t-none m-b">메인 이미지 정렬 <small>(터치 불가)</small></h4>
     <p>{{state}}</p>
     <p>{{list.length}}개의 메인 이미지가 등록되어있습니다.</p>
-    <ul ui-jq="sortable" class="list-group gutter list-group-lg list-group-sp">
+    <ul data-ng-model="list" as-sortable="sortableOptions" class="sortable list-group gutter list-group-lg list-group-sp">
 
-        <li class="list-group-item" ng-repeat="item in list">
+        <li class="list-group-item" ng-repeat="item in list" as-sortable-item>
             <span>{{$index + 1}}</span>
             <span class="pull-right">
-                <a href><i class="fa fa-times fa-fw"></i></a>
+                <a href ng-click="deleteItem(item.id)"><i class="fa fa-times fa-fw"></i></a>
             </span>
             <span class="pull-left"><i class="fa fa-sort text-muted fa m-r-sm"></i> </span>
-            <div class="text-center">
+            <div class="text-center" as-sortable-item-handle>
                 <img ng-src="{{item.url}}" height="100px" alt="">
             </div>
             <div class="clear mt10 text-right">
@@ -24,7 +24,7 @@
         </li>
     </ul>
     <div class="text-right">
-        <button class="btn m-b-xs w-xs btn-primary">확인</button>
+        <button class="btn m-b-xs w-xs btn-primary" ng-click="saveOrder()" ng-show="orderChanged">순서저장</button>
     </div>
 </div>
 
