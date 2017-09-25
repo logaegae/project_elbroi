@@ -64,13 +64,23 @@ class Api extends CI_Controller {
 	public function getMainList(){
 
 		$result = $this -> UploadedFiles_model -> getMainList();
-		$this->output->set_header('Content-Type: application/json; charset=utf-8');
 
+		$this -> output -> set_header('Content-Type: application/json; charset=utf-8');
 		$json = array('list' => $result);
 		echo json_encode($json);
 
 	}
-	public function siteUpload(){
-		upload();
+	public function deleteMainItem(){
+
+		$index = array(
+			'id' => $this -> input -> post('id'),
+			'uploadedFileId' => $this -> input -> post('uploadedFileId')
+		);
+
+		$result = $this -> UploadedFiles_model -> deleteMainItem($index);
+
+		$this -> output -> set_header('Content-Type: application/json; charset=utf-8');
+		$json = $result;
+		echo json_encode($json);
 	}
 }

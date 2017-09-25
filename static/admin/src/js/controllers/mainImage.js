@@ -19,11 +19,13 @@ app.controller('MainImageController', ['$scope', '$http', function($scope, $http
       }
     })
 
-    var data = window.token;
-    data = $.param(data);
+    var token = window.token;
 
     $scope.getList = function(){
+
+        var data = $.param(token);
         $scope.authError = null;
+
         $http({
             method : 'POST',
             url : 'api/getMainList',
@@ -34,7 +36,8 @@ app.controller('MainImageController', ['$scope', '$http', function($scope, $http
           $scope.list = result.data['list'];
           console.log($scope.list);
         }, function(x) {
-            $scope.state = 'Server Error';
+            console.log(x);
+            $scope.state = '서버 에러';
         });
     };
 
@@ -42,8 +45,32 @@ app.controller('MainImageController', ['$scope', '$http', function($scope, $http
         console.log($scope.list);
     }
 
-    $scope.deleteItem = function(e){
-        console.log("id : " + e)
+    $scope.deleteItem = function(index){
+
+        var data = token;
+        data['id'] = index['id'];
+        data['uploadedFileId'] = index['uploadedFileId'];
+        data = $.param(data);
+        console.log(data);
+
+        $scope.authError = null;
+
+        if(confirm("삭제할까요?")){
+            $http({
+                method : 'POST',
+                url : 'api/deleteMainItem',
+                data : data,
+                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+            })
+            .then(function(result) {
+              $scope.getList();
+              $scope.state = "삭제되었습니다."
+            }, function(x) {
+                console.log(x);
+                $scope.state = '서버 에러';
+            });
+        }
+
     }
 
   }]);

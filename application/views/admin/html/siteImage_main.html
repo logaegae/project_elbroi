@@ -2,7 +2,7 @@
     <h1 class="m-n font-thin h3">메인 이미지</h1>
 </div>
 <div class="wrapper-md" ng-controller="MainImageController" ng-init="getList()" id="sortable-wrapper">
-    <h4 class="m-t-none m-b">메인 이미지 정렬 <small>(터치 불가)</small></h4>
+    <h4 class="m-t-none m-b">메인 이미지 정렬</h4>
     <p>{{state}}</p>
     <p>{{list.length}}개의 메인 이미지가 등록되어있습니다.</p>
     <ul data-ng-model="list" as-sortable="sortableOptions" class="sortable list-group gutter list-group-lg list-group-sp">
@@ -10,11 +10,12 @@
         <li class="list-group-item" ng-repeat="item in list" as-sortable-item>
             <span>{{$index + 1}}</span>
             <span class="pull-right">
-                <a href ng-click="deleteItem(item.id)"><i class="fa fa-times fa-fw"></i></a>
+                <a href ng-click="deleteItem({id :item.id,uploadedFileId : item.uploadedFileId})"><i class="fa fa-times fa-fw"></i></a>
             </span>
             <span class="pull-left"><i class="fa fa-sort text-muted fa m-r-sm"></i> </span>
             <div class="text-center" as-sortable-item-handle>
-                <img ng-src="{{item.url}}" height="100px" alt="">
+                <div class="blind" style="height:100px;position:absolute;width:100%;"></div>
+                <img draggable="true" ng-src="{{item.url}}" height="100px" alt="">
             </div>
             <div class="clear mt10 text-right">
                 <div>등록일 : {{item.registrationDate}}</div>

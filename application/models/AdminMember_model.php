@@ -21,9 +21,8 @@ class AdminMember_model extends CI_Model {
 
     //password_hash 없을 때
     function login($data) {
-    	$sql = "SELECT email FROM AdminMember WHERE email = '" . $data['email'] . "' AND password = '" . $data['password'] . "' ";
-
-    	$query = $this -> db -> query($sql);
+            
+        $query = $this -> db -> get_where('AdminMember', array('email' => $data['email'], 'password' => $data['password']));
 
     	if ($query -> num_rows() > 0) {
     		return $query -> row();
