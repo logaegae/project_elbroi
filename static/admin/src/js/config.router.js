@@ -35,24 +35,27 @@ angular.module('app')
                         url: '/dashboard-v1',
                         templateUrl: '/admin/html/app_dashboard_v1.html',
                         resolve: {
-                            deps : load(['/static/admin/src/js/controllers/chart.js']),
-                            auth : isAuthenticate()
+                            auth : isAuthenticate(),
+                            deps : load(['/static/admin/src/js/controllers/chart.js'])
+
                         }
                     })
                     .state('app.dashboard-v2', {
                         url: '/dashboard-v2',
                         templateUrl: '/admin/html/app_dashboard_v2.html',
                         resolve: {
-                            deps : load(['/static/admin/src/js/controllers/chart.js']),
-                            auth : isAuthenticate()
+                            auth : isAuthenticate(),
+                            deps : load(['/static/admin/src/js/controllers/chart.js'])
+
                         }
                     })
                     .state('app.dashboard-v3', {
                         url: '/dashboard-v3',
                         templateUrl: '/admin/html/app_dashboard_v3.html',
                         resolve: {
-                            deps : load(['/static/admin/src/js/controllers/chart.js']),
-                            auth : isAuthenticate()
+                            auth : isAuthenticate(),
+                            deps : load(['/static/admin/src/js/controllers/chart.js'])
+
                         }
                     })
                     .state('app.site', {
@@ -63,24 +66,28 @@ angular.module('app')
                         url: '/mainImage',
                         templateUrl: '/admin/html/siteImage_main.html',
                         resolve: {
-                            deps : load(['/static/admin/src/js/controllers/mainImage.js', 'angularFileUpload', '/static/admin/src/js/controllers/file-upload.js']),
-                            auth : isAuthenticate()
+                            auth : isAuthenticate(),
+                            deps : load(['/static/admin/src/js/controllers/mainImage.js', 'angularFileUpload', '/static/admin/src/js/controllers/file-upload.js'])
                         }
+                    })
+                    .state('app.member', {
+                        url: '/site',
+                        template: '<div ui-view class="fade-in-up"></div>'
                     })
                     .state('app.member.admin', {
                         url: '/adminMemberList',
                         templateUrl: '/admin/html/adminMemberList.html',
                         resolve: {
-                            deps : load(['/static/admin/src/js/controllers/memberList.js']),
-                            auth : isAuthenticate()
+                            auth : isAuthenticate(),
+                            deps : load(['/static/admin/src/js/controllers/table.js'])
                         }
                     })
                     .state('app.member.site', {
                         url: '/siteMemberList',
                         templateUrl: '/admin/html/siteMemberList.html',
                         resolve: {
-                            deps : load(['/static/admin/src/js/controllers/memberList.js']),
-                            auth : isAuthenticate()
+                            auth : isAuthenticate(),
+                            deps : load(['/static/admin/src/js/controllers/table.js'])
                         }
                     })
                     .state('app.ui', {
