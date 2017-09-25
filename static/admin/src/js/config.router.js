@@ -42,12 +42,18 @@ angular.module('app')
                     .state('app.dashboard-v2', {
                         url: '/dashboard-v2',
                         templateUrl: '/admin/html/app_dashboard_v2.html',
-                        resolve: load(['/static/admin/src/js/controllers/chart.js'])
+                        resolve: {
+                            deps : load(['/static/admin/src/js/controllers/chart.js']),
+                            auth : isAuthenticate()
+                        }
                     })
                     .state('app.dashboard-v3', {
                         url: '/dashboard-v3',
                         templateUrl: '/admin/html/app_dashboard_v3.html',
-                        resolve: load(['/static/admin/src/js/controllers/chart.js'])
+                        resolve: {
+                            deps : load(['/static/admin/src/js/controllers/chart.js']),
+                            auth : isAuthenticate()
+                        }
                     })
                     .state('app.site', {
                         url: '/site',
@@ -58,6 +64,22 @@ angular.module('app')
                         templateUrl: '/admin/html/siteImage_main.html',
                         resolve: {
                             deps : load(['/static/admin/src/js/controllers/mainImage.js', 'angularFileUpload', '/static/admin/src/js/controllers/file-upload.js']),
+                            auth : isAuthenticate()
+                        }
+                    })
+                    .state('app.member.admin', {
+                        url: '/adminMemberList',
+                        templateUrl: '/admin/html/adminMemberList.html',
+                        resolve: {
+                            deps : load(['/static/admin/src/js/controllers/memberList.js']),
+                            auth : isAuthenticate()
+                        }
+                    })
+                    .state('app.member.site', {
+                        url: '/siteMemberList',
+                        templateUrl: '/admin/html/siteMemberList.html',
+                        resolve: {
+                            deps : load(['/static/admin/src/js/controllers/memberList.js']),
                             auth : isAuthenticate()
                         }
                     })

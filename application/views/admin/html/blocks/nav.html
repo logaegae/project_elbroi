@@ -20,13 +20,13 @@
       </li>
       <li ui-sref-active="active">
         <a ui-sref="app.dashboard-v1">
-          <span>Dashboard v1</span>
+          <span>대시보드 v1</span>
         </a>
       </li>
       <li ui-sref-active="active">
         <a ui-sref="app.dashboard-v2">
           <b class="label bg-info pull-right">N</b>
-          <span>Dashboard v2</span>
+          <span>대시보드 v2</span>
         </a>
       </li>
     </ul>
@@ -82,7 +82,48 @@
     </ul>
   </li>
 
-  <li class="line dk"></li>
+  <li class="line dk hidden-folded"></li>
+
+  <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+    <span>사이트 관리</span>
+  </li>
+  <li ng-class="{active:$state.includes('app.site')}">
+    <a href class="auto">
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+      <i class="glyphicon glyphicon-picture icon text-primary-dker"></i>
+      <span>사이트 이미지</span>
+    </a>
+    <ul class="nav nav-sub dk">
+      <li class="nav-sub-header">
+        <a href>
+          <span>사이트 이미지</span>
+        </a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="app.site.mainImage">
+          <span>메인</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <li ui-sref-active="active">
+    <a ui-sref="app.member.admin">
+      <i class="glyphicon glyphicon-list-alt icon"></i>
+      <span>관리자 회원관리</span>
+    </a>
+  </li>
+  <li ui-sref-active="active">
+    <a ui-sref="app.member.site">
+      <i class="glyphicon glyphicon-user icon"></i>
+      <span>사이트 회원관리</span>
+    </a>
+  </li>
+
+  <li class="line dk hidden-folded"></li>
 
   <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
     <span translate="aside.nav.components.COMPONENTS">Components</span>
@@ -401,33 +442,6 @@
       <li>
         <a ui-sref="access.404">
           <span translate="aside.nav.components.pages.404">404</span>
-        </a>
-      </li>
-    </ul>
-  </li>
-  <li class="line dk hidden-folded"></li>
-
-  <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
-    <span>사이트 관리</span>
-  </li>
-  <li ng-class="{active:$state.includes('app.site')}">
-    <a href class="auto">
-      <span class="pull-right text-muted">
-        <i class="fa fa-fw fa-angle-right text"></i>
-        <i class="fa fa-fw fa-angle-down text-active"></i>
-      </span>
-      <i class="glyphicon glyphicon-stats icon text-primary-dker"></i>
-      <span>사이트 이미지</span>
-    </a>
-    <ul class="nav nav-sub dk">
-      <li class="nav-sub-header">
-        <a href>
-          <span>사이트 이미지</span>
-        </a>
-      </li>
-      <li ui-sref-active="active">
-        <a ui-sref="app.site.mainImage">
-          <span>메인</span>
         </a>
       </li>
     </ul>

@@ -10,8 +10,6 @@ app.controller('MainImageController', ['$scope', '$http', function($scope, $http
 		containment: '#sortable-wrapper',
 	    orderChanged: function (event) {
 	    	$scope.orderChanged = true;
-            console.log($scope.list);
-
 	    }
 	};
 
@@ -37,7 +35,6 @@ app.controller('MainImageController', ['$scope', '$http', function($scope, $http
         .then(function(result) {
 
             $scope.list = result.data['list'];
-            console.log($scope.list);
 
         }, function(x) {
             console.log(x);
@@ -64,7 +61,7 @@ app.controller('MainImageController', ['$scope', '$http', function($scope, $http
             headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
         })
         .then(function(result) {
-            console.log(result);
+
             $scope.getList();
             $scope.orderChanged = false;
             $scope.state = result.data['message'];
