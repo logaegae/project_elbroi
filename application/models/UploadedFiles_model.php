@@ -73,7 +73,6 @@ class UploadedFiles_model extends CI_Model {
 
     function saveOrder($list){
 
-        $this -> db -> trans_start();
 
         foreach ($list as $item){
 
@@ -83,11 +82,7 @@ class UploadedFiles_model extends CI_Model {
 
         }
 
-        if($this -> db -> affected_rows() > 0){
-
-            $this -> db -> trans_complete();
             return array('message' => '순서를 저장했습니다.');
 
-        }
     }
 }

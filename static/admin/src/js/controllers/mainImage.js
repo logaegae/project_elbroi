@@ -10,6 +10,8 @@ app.controller('MainImageController', ['$scope', '$http', function($scope, $http
 		containment: '#sortable-wrapper',
 	    orderChanged: function (event) {
 	    	$scope.orderChanged = true;
+            console.log($scope.list);
+
 	    }
 	};
 
@@ -64,6 +66,7 @@ app.controller('MainImageController', ['$scope', '$http', function($scope, $http
         .then(function(result) {
             console.log(result);
             $scope.getList();
+            $scope.orderChanged = false;
             $scope.state = result.data['message'];
 
         }, function(x) {
@@ -98,5 +101,4 @@ app.controller('MainImageController', ['$scope', '$http', function($scope, $http
         }
 
     }
-
   }]);
