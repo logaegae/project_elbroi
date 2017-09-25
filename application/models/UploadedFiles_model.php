@@ -57,15 +57,37 @@ class UploadedFiles_model extends CI_Model {
         $where = "id = ".$index['id'];
         $this -> db -> update('SiteImage', $data, $where);
 
-        if($this->db->affected_rows() > 0){
+        if($this -> db -> affected_rows() > 0){
             $data = array('delYn' => 'Y', 'deletedDate' => now());
             $where = "id = ".$index["uploadedFileId"];
             $this -> db -> update('UploadedFiles', $data, $where);
 
-            if($this->db->affected_rows()){
+            if($this -> db -> affected_rows() > 0){
+
                 $this -> db -> trans_complete();
                 return array('message' => '삭제되었습니다.');
+
             }
+        }
+    }
+
+    function saveOrder($list){
+
+        $this -> db -> trans_start();
+
+        foreach ($list as $item){
+
+            $data = array('priority' => $item['priority']);
+            $where = "id = ".$item['id'];
+            $this -> db -> update('SiteImage', $data, $where);
+
+        }
+
+        if($this -> db -> affected_rows() > 0){
+
+            $this -> db -> trans_complete();
+            return array('message' => '순서를 저장했습니다.');
+
         }
     }
 }

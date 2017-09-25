@@ -56,7 +56,10 @@ angular.module('app')
                     .state('app.site.mainImage', {
                         url: '/mainImage',
                         templateUrl: '/admin/html/siteImage_main.html',
-                        resolve: load(['/static/admin/src/js/controllers/mainImage.js', 'angularFileUpload', '/static/admin/src/js/controllers/file-upload.js'])
+                        resolve: {
+                            deps : load(['/static/admin/src/js/controllers/mainImage.js', 'angularFileUpload', '/static/admin/src/js/controllers/file-upload.js']),
+                            auth : isAuthenticate()
+                        }
                     })
                     .state('app.ui', {
                         url: '/ui',

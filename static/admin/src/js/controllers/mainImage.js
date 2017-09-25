@@ -33,8 +33,10 @@ app.controller('MainImageController', ['$scope', '$http', function($scope, $http
             headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
         })
         .then(function(result) {
-          $scope.list = result.data['list'];
-          console.log($scope.list);
+
+            $scope.list = result.data['list'];
+            console.log($scope.list);
+
         }, function(x) {
             console.log(x);
             $scope.state = '서버 에러';
@@ -42,7 +44,32 @@ app.controller('MainImageController', ['$scope', '$http', function($scope, $http
     };
 
     $scope.saveOrder = function(){
-        console.log($scope.list);
+
+        var data = token;
+        data['list'] = [];
+        $scope.list.forEach(function(e,i){
+            data['list'].push({
+                id : e.id,
+                priority : i + 1
+            });
+        });
+        data = $.param(data);
+
+        $http({
+            method : 'POST',
+            url : 'api/saveOrder',
+            data : data,
+            headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+        })
+        .then(function(result) {
+            console.log(result);
+            $scope.getList();
+            $scope.state = result.data['message'];
+
+        }, function(x) {
+            console.log(x);
+            $scope.state = '서버 에러';
+        });
     }
 
     $scope.deleteItem = function(index){
@@ -51,7 +78,6 @@ app.controller('MainImageController', ['$scope', '$http', function($scope, $http
         data['id'] = index['id'];
         data['uploadedFileId'] = index['uploadedFileId'];
         data = $.param(data);
-        console.log(data);
 
         $scope.authError = null;
 

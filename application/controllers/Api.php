@@ -83,4 +83,14 @@ class Api extends CI_Controller {
 		$json = $result;
 		echo json_encode($json);
 	}
+
+	public function saveOrder(){
+
+		$list = $this -> input -> post('list');
+		$result = $this -> UploadedFiles_model -> saveOrder($list);
+
+		$this -> output -> set_header('Content-Type: application/json; charset=utf-8');
+		$json = $result;
+		echo json_encode($json);
+	}
 }
