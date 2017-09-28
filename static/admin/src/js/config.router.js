@@ -79,7 +79,7 @@ angular.module('app')
                         templateUrl: '/admin/html/adminMemberList.html',
                         resolve: {
                             auth : isAuthenticate(),
-                            deps : load(['/static/admin/src/js/controllers/table.js'])
+                            deps : load(['/static/admin/src/js/controllers/adminMemberTable.js'])
                         }
                     })
                     .state('app.member.site', {
@@ -87,7 +87,7 @@ angular.module('app')
                         templateUrl: '/admin/html/siteMemberList.html',
                         resolve: {
                             auth : isAuthenticate(),
-                            deps : load(['/static/admin/src/js/controllers/table.js'])
+                            deps : load(['/static/admin/src/js/controllers/siteMemberTable.js'])
                         }
                     })
                     .state('app.ui', {

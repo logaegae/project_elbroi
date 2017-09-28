@@ -73,7 +73,6 @@ class UploadedFiles_model extends CI_Model {
 
     function saveOrder($list){
 
-
         foreach ($list as $item){
 
             $data = array('priority' => $item['priority']);

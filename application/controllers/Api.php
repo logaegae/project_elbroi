@@ -70,6 +70,7 @@ class Api extends CI_Controller {
 		echo json_encode($json);
 
 	}
+
 	public function deleteMainItem(){
 
 		$index = array(
@@ -80,8 +81,7 @@ class Api extends CI_Controller {
 		$result = $this -> UploadedFiles_model -> deleteMainItem($index);
 
 		$this -> output -> set_header('Content-Type: application/json; charset=utf-8');
-		$json = $result;
-		echo json_encode($json);
+		echo json_encode($result);
 	}
 
 	public function saveOrder(){
@@ -90,7 +90,6 @@ class Api extends CI_Controller {
 		$result = $this -> UploadedFiles_model -> saveOrder($list);
 
 		$this -> output -> set_header('Content-Type: application/json; charset=utf-8');
-		$json = $result;
-		echo json_encode($json);
+		echo json_encode($result);
 	}
 }

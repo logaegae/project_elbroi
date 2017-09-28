@@ -1,10 +1,10 @@
 <div class="bg-light lter b-b wrapper-md">
     <h1 class="m-n font-thin h3">회원관리</h1>
 </div>
-<div class="wrapper-md" ng-controller="AdminMemberTableCtrl" ng-init="getList()">
+<div class="wrapper-md" ng-controller="MemberTableCtrl" ng-init="getList()">
     <div class="panel panel-default">
         <div class="panel-heading">
-            관리자 회원
+            사이트 회원
         </div>
         <p ng-show="state" class="panel-body">{{state}}</p>
         <div class="panel-body b-b b-light">
@@ -21,6 +21,9 @@
                             이름
                         </th>
                         <th>
+                            연락처
+                        </th>
+                        <th>
                             등급
                         </th>
                         <th >
@@ -35,6 +38,7 @@
                     <tr ng-repeat="item in list">
                         <td>{{item.email}}</td>
                         <td>{{item.name}}</td>
+                        <td>{{item.phone}}</td>
                         <td>{{item.rank}}</td>
                         <td data-value="{{item.registrationTimestamp}}">{{item.registationDate}}</td>
                         <td data-value="1" ng-if="item.authorizationYn == 'Y'">

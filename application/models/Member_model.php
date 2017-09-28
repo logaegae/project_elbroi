@@ -7,16 +7,26 @@ class Member_model extends CI_Model {
 
     function getList(){
 
-        return $this->db->query("SELECT * FROM Member")->result();
+        return $this -> db -> select('id, email, name, phone, rank, registrationDate, authorizationYn') -> get_where('Member', array('delYn' => 'N')) -> result();
     }
 
     function getByEmail($option){
-    	$result = $this->db->get_where('Member', array('email'=> $option))->row();
+    	$result = $this -> db -> get_where('Member', array('email'=> $option)) -> row();
     	if($result){
     		return $result;
     	} else {
 			return FALSE;
     	}
+    }
+
+    function signupOk($item){
+
+        $data = array('authorizationYn' => $item['authorizationYn']);
+        $where = "id = ".$item['id'];
+        $this -> db -> update('Member', $data, $where);
+        $item['authorizationYn'] =='N'? $message = '승인을 취소했습니다.': $message = '승인되었습니다.';
+        return array('message' => $message);
+
     }
 
     //password_hash 없을 때
