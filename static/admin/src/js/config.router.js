@@ -90,6 +90,14 @@ angular.module('app')
                             deps : load(['/static/admin/src/js/controllers/siteMemberTable.js'])
                         }
                     })
+                    .state('app.member.emailForm', {
+                        url: '/emailForm',
+                        templateUrl: '/admin/html/emailForm.html',
+                        resolve: {
+                            auth : isAuthenticate(),
+                            deps : load(['/static/admin/src/js/controllers/emailForm.js'])
+                        }
+                    })
                     .state('app.ui', {
                         url: '/ui',
                         template: '<div ui-view class="fade-in-up"></div>'
