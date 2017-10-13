@@ -98,6 +98,24 @@ angular.module('app')
                             deps : load(['/static/admin/src/js/controllers/emailForm.js'])
                         }
                     })
+                    .state('app.goods', {
+                        url: '/goods',
+                        template: '<div ui-view class="fade-in-up"></div>'
+                    })
+                    .state('app.goods.registration', {
+                        url: '/goodsRegistration',
+                        templateUrl: '/admin/html/goodsRegistration.html',
+                        resolve: {
+                            auth : isAuthenticate()
+                        }
+                    })
+                    .state('app.goods.list', {
+                        url: '/goodsList',
+                        templateUrl: '/admin/html/goodsList.html',
+                        resolve: {
+                            auth : isAuthenticate()
+                        }
+                    })
                     .state('app.ui', {
                         url: '/ui',
                         template: '<div ui-view class="fade-in-up"></div>'
