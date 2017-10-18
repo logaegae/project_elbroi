@@ -103,10 +103,11 @@ angular.module('app')
                         template: '<div ui-view class="fade-in-up"></div>'
                     })
                     .state('app.goods.registration', {
-                        url: '/goodsRegistration',
+                        url: '/registration',
                         templateUrl: '/admin/html/goodsRegistration.html',
                         resolve: {
-                            auth : isAuthenticate()
+                            auth : isAuthenticate(),
+                            deps : load(['/static/admin/src/js/controllers/goodsRegistration.js'])
                         }
                     })
                     .state('app.goods.list', {
