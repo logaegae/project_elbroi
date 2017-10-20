@@ -6,9 +6,9 @@ class Account extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this -> load ->model('Member_model');
-		$this -> load ->helper('url');
-		$this -> load ->library('form_validation');
+		$this -> load -> model('Member_model');
+		$this -> load -> helper('url');
+		$this -> load -> library('form_validation');
 	}
 
 	public function index() {

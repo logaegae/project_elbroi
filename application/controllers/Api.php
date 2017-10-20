@@ -7,6 +7,8 @@ class Api extends CI_Controller {
 
 		parent::__construct();
 		$this -> load -> model('UploadedFiles_model');
+		$this -> load -> model('Goods_model');
+		$this -> load -> library('form_validation');
 
 	}
 
@@ -91,5 +93,47 @@ class Api extends CI_Controller {
 
 		$this -> output -> set_header('Content-Type: application/json; charset=utf-8');
 		echo json_encode($result);
+	}
+
+	public function saveGood(){
+
+		$this->form_validation->set_rules('name', '이름', 'required');
+		$this->form_validation->set_rules('detail', '상세정보', 'required');
+
+		//입력폼 유효
+		if ($this -> form_validation -> run() == TRUE) {
+
+			$email = trim($this->input->post('email', TRUE));
+			$name = trim($this->input->post('name', TRUE));
+			$password = trim($this->input->post('password', TRUE));
+			$phone = trim($this->input->post('phone', TRUE));
+
+			if(!function_exists('password_hash')){
+				$this->load->helper('password');
+			}
+
+			$hash = password_hash($password, PASSWORD_BCRYPT);
+
+			$member_data = array(
+					'email' => $email,
+					'name' => $name,
+					'password' => $hash,
+					'phone' => $phone
+			);
+
+			$result = $this -> Member_model -> signup($member_data);
+
+			//회원가입 성공
+			if ($result) {
+				$this->output->set_header('Content-Type: application/json; charset=utf-8');
+				echo json_encode(array("result"=> 'success'));
+			}else{
+				$this->output->set_header('Content-Type: application/json; charset=utf-8');
+				echo json_encode(array("result"=> 'fail'));
+			}
+		} else {
+			$this->output->set_header('Content-Type: application/json; charset=utf-8');
+			echo json_encode(array("result"=> 'wrong'));
+		}
 	}
 }
