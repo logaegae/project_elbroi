@@ -7,7 +7,7 @@
             상품정보 입력
         </div>
         <div class="panel-body">
-            <form class="form-horizontal" method="post">
+            <form class="form-horizontal" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label class="col-sm-2 control-label">상품명</label>
                     <div class="col-sm-10">
@@ -18,7 +18,7 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">썸네일 이미지</label>
                     <div class="col-sm-10">
-                        <input type="file" name="thumb" accept="image/*" onchange="loadFile(event)">
+                        <input type="file" name="file" accept="image/*" onchange="loadFile(event)" ng-model="data.file">
                     </div>
                     <div class="text-center">
                         <img id="output"/>
@@ -128,7 +128,7 @@
                         </div>
                     </div>
                 </div>
-                {{data.detail}}
+                {{data}}
                 <div class="line line-dashed b-b line-lg pull-in"></div>
                 <div class="form-group">
                     <div class="col-sm-2 col-sm-offset-5 text-center">
@@ -151,7 +151,7 @@
     };
     window.token = {
         <?php echo $this->security->get_csrf_token_name(); ?>: '<?php echo $this->security->get_csrf_hash(); ?>',
-        code: 'SITE_MAIN_IMAGE',
+        code: 'GOODS_IMAGE',
         updateId : '<?php echo $_SESSION['adminEmail'] ?>'
     };
 </script>

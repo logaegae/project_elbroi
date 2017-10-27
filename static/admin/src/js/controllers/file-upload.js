@@ -5,7 +5,7 @@ app.controller('FileUploadCtrl', ['$rootScope', '$scope', 'FileUploader', functi
     var data = window.token;
 
     var uploader = $scope.uploader = new FileUploader({
-        url: 'api/upload',
+        url: 'api/uploadSiteImage',
         formData: [data],
     });
 

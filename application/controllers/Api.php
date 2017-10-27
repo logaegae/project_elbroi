@@ -12,7 +12,7 @@ class Api extends CI_Controller {
 
 	}
 
-	public function upload(){
+	public function upload($code,$updateId){
 
 		$json = array();
 
@@ -40,8 +40,6 @@ class Api extends CI_Controller {
 				'url' => $config['upload_path'].'/'.$upload_details['file_name']
 			);
 
-			$code = $this -> input -> post('code');
-			$updateId = $this -> input -> post('updateId');
 			if($code && $updateId){
 				$option['code'] = $code;
 				$option['updateId'] = $updateId;
@@ -57,6 +55,16 @@ class Api extends CI_Controller {
 				$json['message'] = '기록 실패';
 			}
 	    }
+
+		return $json;
+	}
+
+	public function uploadSiteImage(){
+
+		$code = $this -> input -> post('code');
+		$updateId = $this -> input -> post('updateId');
+
+		$json = $this -> upload($code,$updateId);
 
 		$this->output->set_header('Content-Type: application/json; charset=utf-8');
 		echo json_encode($json);
@@ -97,36 +105,42 @@ class Api extends CI_Controller {
 
 	public function saveGood(){
 
-		$this->form_validation->set_rules('name', '이름', 'required');
+		$code = $this -> input -> post('code');
+		$updateId = $this -> input -> post('updateId');
+
+		$this->form_validation->set_rules('name', '이름', 'trim|required');
+		$this->form_validation->set_rules('price', '가격', 'trim|required|integer');
 		$this->form_validation->set_rules('detail', '상세정보', 'required');
 
 		//입력폼 유효
 		if ($this -> form_validation -> run() == TRUE) {
 
-			$email = trim($this->input->post('email', TRUE));
+			$code = trim($this->input->post('code', TRUE));
 			$name = trim($this->input->post('name', TRUE));
-			$password = trim($this->input->post('password', TRUE));
-			$phone = trim($this->input->post('phone', TRUE));
+			$price = trim($this->input->post('price', TRUE));
+			$stock = trim($this->input->post('stock', TRUE));
+			$detail = trim($this->input->post('detail', TRUE));
 
-			if(!function_exists('password_hash')){
-				$this->load->helper('password');
-			}
-
-			$hash = password_hash($password, PASSWORD_BCRYPT);
-
-			$member_data = array(
-					'email' => $email,
-					'name' => $name,
-					'password' => $hash,
-					'phone' => $phone
+			$data = array(
+				'code' => $code,
+	            'name' => $name,
+	            'delYn' => 'N',
+	            'price' => $price,
+				'detail' => $detail
 			);
 
-			$result = $this -> Member_model -> signup($member_data);
+			$stock !== NULL ? $data['stock'] = $stock : '';
 
-			//회원가입 성공
+			$result = $this -> Goods_model -> save($data);
+
+			//상품등록 성공
 			if ($result) {
+
+				$json = $this -> upload($code,$updateId);
+
 				$this->output->set_header('Content-Type: application/json; charset=utf-8');
-				echo json_encode(array("result"=> 'success'));
+				echo json_encode($json);
+
 			}else{
 				$this->output->set_header('Content-Type: application/json; charset=utf-8');
 				echo json_encode(array("result"=> 'fail'));
@@ -135,5 +149,7 @@ class Api extends CI_Controller {
 			$this->output->set_header('Content-Type: application/json; charset=utf-8');
 			echo json_encode(array("result"=> 'wrong'));
 		}
+
+
 	}
 }

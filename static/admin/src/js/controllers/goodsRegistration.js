@@ -6,12 +6,11 @@
 app.controller('GoodsRegistrationCtrl', ['$scope', '$http', function($scope, $http) {
 
     $scope.data = {
-        code : null,
+        code : "test",
         name : null,
-        delYn : 'N',
         price : null,
         stock : null,
-        detail : null
+        file: null
     };
     $scope.state = null;
 
@@ -19,20 +18,25 @@ app.controller('GoodsRegistrationCtrl', ['$scope', '$http', function($scope, $ht
 
     $scope.submitData = function(){
 
-        var data = token;
-        data['good'] = $scope.data;
-        
-        data.good['detail'] = document.getElementById('detail').innerHTML;
-        $scope.data = $.param(data);
+        var formData = new FormData();
 
-        $http({
-            method : 'POST',
-            url : 'api/saveGood',
-            data : data,
-            headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+        for(var e in token){
+            console.log(e)
+            formData.append(e, token[e]);
+        }
+
+        for(var e in $scope.data){
+            formData.append(e, $scope.data[e]);
+        }
+
+        formData.append("detail", document.getElementById('detail').innerHTML);
+        
+        $http.post('api/saveGood', formData, {
+           transformRequest: angular.identity,
+           headers: {'Content-Type': undefined}
         })
         .then(function(result) {
-
+            console.log(result);
             $scope.state = result.data['message'];
 
         }, function(x) {
