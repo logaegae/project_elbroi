@@ -8,6 +8,7 @@ class ListApi extends CI_Controller {
 		parent::__construct();
 		$this -> load -> model('AdminMember_model');
 		$this -> load -> model('Member_model');
+		$this -> load -> model('Goods_model');
 
 	}
 
@@ -24,6 +25,16 @@ class ListApi extends CI_Controller {
 	public function getMemberList(){
 
 		$result = $this -> Member_model -> getList();
+
+		$this -> output -> set_header('Content-Type: application/json; charset=utf-8');
+		$json = array('list' => $result);
+		echo json_encode($json);
+
+	}
+
+	public function getGoodsList(){
+
+		$result = $this -> Goods_model -> getList();
 
 		$this -> output -> set_header('Content-Type: application/json; charset=utf-8');
 		$json = array('list' => $result);

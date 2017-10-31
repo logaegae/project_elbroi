@@ -1,5 +1,5 @@
 <?php
-class UploadedFiles_model extends CI_Model {
+class SiteImage_model extends CI_Model {
 
     function __construct(){
         parent::__construct();
@@ -9,23 +9,22 @@ class UploadedFiles_model extends CI_Model {
 
         $this -> db -> trans_start();
 
-        $url = array(
-			'url' => $option['url']
+        $data = array(
+            'url' => $option['url'],
+			'code' => $option['code'],
+            'updateId' => $option['updateId'],
+            'priority' => '1'
         );
-  		$this -> db -> insert('UploadedFiles', $url);
-  		$result = $this -> db -> insert_id();
-
-        if($option['code']){
-            $data = array(
-    			'code' => $option['code'],
-                'uploadedFileId' => $result,
-                'updateId' => $option['updateId'],
-                'priority' => '1'
-            );
-            $this -> db -> insert('SiteImage', $data);
+        if(!empty($option['goodsId'])){
+            $data['goodsId'] = $option['goodsId'];
         }
 
+        $this -> db -> insert('SiteImage', $data);
+
+        $result = $this -> db -> insert_id();
+
         $this -> db -> trans_complete();
+
   		return $result;
     }
 
@@ -37,11 +36,11 @@ class UploadedFiles_model extends CI_Model {
         // $query .= "WHERE s.delYn = 'N' AND u.delYn = 'N'";
         // $query .= "ORDER BY s.priority, s.id DESC";
 
-        $this -> db -> select('SiteImage.id, SiteImage.priority, SiteImage.registrationDate, SiteImage.uploadedDate, SiteImage.updateId, SiteImage.uploadedFileId, UploadedFiles.url');
+        $this -> db -> select('id, priority, registrationDate, uploadedDate, updateId, url');
         $this -> db -> from('SiteImage');
-        $this -> db -> join('UploadedFiles', 'UploadedFiles.id = SiteImage.uploadedFileId');
-        $this -> db -> where(array('SiteImage.delYn' => 'N', 'UploadedFiles.delYn' => 'N'));
-        $this -> db -> order_by('SiteImage.priority ASC', 'SiteImage.id DESC');
+        // $this -> db -> join('UploadedFiles', 'UploadedFiles.id = SiteImage.uploadedFileId');
+        $this -> db -> where(array('delYn' => 'N'));
+        $this -> db -> order_by('priority ASC', 'uploadedDate DESC', 'registrationDate DESC');
         $query = $this -> db -> get() -> result_array();
 
         return $query;

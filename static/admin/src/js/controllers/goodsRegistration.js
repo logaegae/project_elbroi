@@ -6,7 +6,7 @@
 app.controller('GoodsRegistrationCtrl', ['$scope', '$http', function($scope, $http) {
 
     $scope.data = {
-        code : "test",
+        datacode : "test",
         name : null,
         price : null,
         stock : null,
@@ -15,6 +15,13 @@ app.controller('GoodsRegistrationCtrl', ['$scope', '$http', function($scope, $ht
     $scope.state = null;
 
     var token = window.token;
+
+    $scope.attachedFile = function(element) {
+        $scope.$apply(function($scope) {
+            $scope.data.file = element.files[0];
+        });
+       console.log('file attached');
+   };
 
     $scope.submitData = function(){
 
@@ -30,7 +37,7 @@ app.controller('GoodsRegistrationCtrl', ['$scope', '$http', function($scope, $ht
         }
 
         formData.append("detail", document.getElementById('detail').innerHTML);
-        
+
         $http.post('api/saveGood', formData, {
            transformRequest: angular.identity,
            headers: {'Content-Type': undefined}

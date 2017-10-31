@@ -114,7 +114,8 @@ angular.module('app')
                         url: '/goodsList',
                         templateUrl: '/admin/html/goodsList.html',
                         resolve: {
-                            auth : isAuthenticate()
+                            auth : isAuthenticate(),
+                            deps : load(['/static/admin/src/js/controllers/goodsTable.js'])
                         }
                     })
                     .state('app.ui', {
