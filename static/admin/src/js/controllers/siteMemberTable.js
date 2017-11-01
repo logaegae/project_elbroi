@@ -56,11 +56,5 @@ app.controller('MemberTableCtrl', ['$scope', '$http', function($scope, $http) {
         });
     }
 
-    $timeout(function(){
-        $('.table').trigger('footable_redraw');
-
-        console.log("??")
-    }, 100);
-
 
 }]);

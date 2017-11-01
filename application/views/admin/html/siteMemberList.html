@@ -7,12 +7,10 @@
             사이트 회원
         </div>
         <p ng-show="state" class="panel-body">{{state}}</p>
-        <p>{{item}}</p>
         <div class="panel-body b-b b-light">
-            검색: <input id="filter" ng-model="searchText" type="text" class="form-control input-sm w-sm inline m-r" />
-        </div>
+            검색: <input id="filter" type="text" class="form-control input-sm w-sm inline m-r"/>
         <div>
-            <table class="table m-b-none" ui-jq="footable" data-filter="#filter" data-page-size="15">
+            <table class="table m-b-none" ui-jq="footable" data-filter="#filter" data-page-size="5">
                 <thead>
                     <tr>
                         <th data-toggle="true">
