@@ -39,7 +39,7 @@ class SiteImage_model extends CI_Model {
         $this -> db -> select('id, priority, registrationDate, uploadedDate, updateId, url');
         $this -> db -> from('SiteImage');
         // $this -> db -> join('UploadedFiles', 'UploadedFiles.id = SiteImage.uploadedFileId');
-        $this -> db -> where(array('delYn' => 'N'));
+        $this -> db -> where(array('delYn' => 'N','code' => 'SITE_MAIN_IMAGE'));
         $this -> db -> order_by('priority ASC', 'uploadedDate DESC', 'registrationDate DESC');
         $query = $this -> db -> get() -> result_array();
 

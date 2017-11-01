@@ -22,6 +22,7 @@ app.controller('MemberTableCtrl', ['$scope', '$http', function($scope, $http) {
 
             });
             $scope.list = result.data['list'];
+            $scope.state = 'ok';
 
         }, function(x) {
             console.log(x);
@@ -54,5 +55,12 @@ app.controller('MemberTableCtrl', ['$scope', '$http', function($scope, $http) {
             $scope.state = '서버 에러';
         });
     }
+
+    $timeout(function(){
+        $('.table').trigger('footable_redraw');
+
+        console.log("??")
+    }, 100);
+
 
 }]);
